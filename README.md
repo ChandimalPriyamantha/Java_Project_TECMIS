@@ -1,5 +1,4 @@
 # Java_Project
  This is a group project which was given under the OOP course modul.
-<img src="https://github.com/ChandimalPriyamantha/Java_Project/blob/main/ER_Diagram.PNG">
+<img src="https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png">
 <hr>
-<img src="https://github.com/ChandimalPriyamantha/Java_Project/blob/main/class_diagram.drawio.png">
