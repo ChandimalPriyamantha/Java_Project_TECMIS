@@ -10,11 +10,11 @@ package com.tecmis.B05.notice;
  */
 public class Notice {
     
-    public String NoticeID;
-    public String Title;
-    public String Date_Time;
-    public String FilePath;
-    public String Description;
+    private String NoticeID;
+    private String Title;
+    private String Date_Time;
+    private String FilePath;
+    private String Description;
 
     public String getNoticeID() {
         return NoticeID;

@@ -10,20 +10,20 @@ package com.tecmic.B05.user;
  */
 public class User {
     
-    public String LogingState;
-    public String UserID;
-    public String FirstName;
-    public String MiddleName;
-    public String LastName;
-    public String Email;
-    public String NIC;
-    public String BirthDate;
+    private String LogingState;
+    private String UserID;
+    private String FirstName;
+    private String MiddleName;
+    private String LastName;
+    private String Email;
+    private String NIC;
+    private String BirthDate;
     private String UserName;
     private String Password;
-    public String Sex;
-    public String PhoneNumner;
-    public String Address;
-    public String ImagePathe;
+    private String Sex;
+    private String PhoneNumner;
+    private String Address;
+    private String ImagePathe;
 
     public String getLogingState() {
         return LogingState;
