@@ -46,7 +46,7 @@ public class AdminLoginForm extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\juicy-woman-connects-a-laptop-to-the-server.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\3d-fluency-books.png")); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -66,32 +66,32 @@ public class AdminLoginForm extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(151, 151, 151))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(99, 99, 99))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6))
-                        .addGap(108, 108, 108))
+                        .addComponent(jLabel5)
+                        .addGap(141, 141, 141))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))))
+                        .addGap(34, 34, 34))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
@@ -109,7 +109,7 @@ public class AdminLoginForm extends javax.swing.JFrame {
         jLabel4.setText("User Name : ");
 
         txtUserName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtUserName.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        txtUserName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserNameActionPerformed(evt);
@@ -125,7 +125,7 @@ public class AdminLoginForm extends javax.swing.JFrame {
         });
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel8.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-back-arrow-50.png")); // NOI18N
         jLabel8.setText("jLabel8");
@@ -167,9 +167,9 @@ public class AdminLoginForm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(23, 23, 23)
                         .addComponent(jLabel2)))
-                .addGap(54, 54, 54)
+                .addGap(57, 57, 57)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))

@@ -4,7 +4,7 @@
  */
 package com.tecmic.B05.admin;
 
-import com.tecmic.B05.user.User;
+
 
 /**
  *
@@ -12,5 +12,5 @@ import com.tecmic.B05.user.User;
  */
 public abstract class AdminLogin {
     
-    abstract void Login(User user);
+    abstract void Login(Admin admin);
 }

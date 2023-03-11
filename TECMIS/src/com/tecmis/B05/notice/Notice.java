@@ -4,6 +4,8 @@
  */
 package com.tecmis.B05.notice;
 
+
+
 /**
  *
  * @author Vivobook
@@ -15,7 +17,7 @@ public class Notice {
     private String Date_Time;
     private String FilePath;
     private String Description;
-
+  
     public String getNoticeID() {
         return NoticeID;
     }
@@ -54,6 +56,7 @@ public class Notice {
 
     public void setDescription(String Description) {
         this.Description = Description;
+        
     }
     
     

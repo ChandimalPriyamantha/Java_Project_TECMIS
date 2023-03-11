@@ -5,8 +5,7 @@
 package com.tecmic.B05.admin;
 
 import com.tecmic.B05.TecmisDB.TecmisDB;
-import com.tecmic.B05.TecmisView.TechmisView;
-import com.tecmic.B05.user.User;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,14 +18,14 @@ import javax.swing.JOptionPane;
 public class AdminLoginImp extends AdminLogin{
 
     @Override
-    void Login(User user) {
+    void Login(Admin admin) {
         
         try {
             Connection con =  TecmisDB.getConnection();
             String sql = "Select username, password from admin where username=? and password=?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, user.getUserName());
-            ps.setString(2, user.getPassword());
+            ps.setString(1, admin.getUserName());
+            ps.setString(2, admin.getPassword());
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 
