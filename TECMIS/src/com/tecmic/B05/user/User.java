@@ -8,7 +8,7 @@ package com.tecmic.B05.user;
  *
  * @author Vivobook
  */
-public class User {
+public  class User {
     
     private String LogingState;
     private String UserID;
@@ -24,6 +24,10 @@ public class User {
     private String PhoneNumner;
     private String Address;
     private String ImagePathe;
+    
+   public void login(){
+   
+   }
 
     public String getLogingState() {
         return LogingState;
