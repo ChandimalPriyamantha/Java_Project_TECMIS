@@ -4,6 +4,15 @@
  */
 package com.tecmic.B05.user;
 
+import com.tecmic.B05.TecmisDB.TecmisDB;
+import com.tecmis.B05.course.Course;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Vivobook
@@ -24,6 +33,24 @@ public  class User {
     private String PhoneNumner;
     private String Address;
     private String ImagePathe;
+    private String level;
+    private String departmentID;
+
+    public String getDepartmentID() {
+        return departmentID;
+    }
+
+    public void setDepartmentID(String departmentID) {
+        this.departmentID = departmentID;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
     
    public void login(){
    
@@ -140,6 +167,218 @@ public  class User {
     public void setImagePathe(String ImagePathe) {
         this.ImagePathe = ImagePathe;
     }
+    
+    
+    public List<User> list(String accessType) {
+       List<User> list = new ArrayList<User>();
+       
+       if(accessType == "admin"){
+       
+            try {
+            Connection con = TecmisDB.getConnection();
+            String sql = "SELECT * FROM admin";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            
+            
+            while(rs.next()){
+                User user = new User();
+                
+                user.setUserID(rs.getString("id"));
+                user.setNIC(rs.getString("nic"));
+                user.setFirstName(rs.getString("fname"));
+                user.setMiddleName(rs.getString("mname"));
+                user.setLastName(rs.getString("lname"));
+                user.setBirthDate(rs.getString("birth_date"));
+                user.setAddress(rs.getString("address"));
+                user.setSex(rs.getString("sex"));
+              
+                user.setPhoneNumner(rs.getString("phone_no"));
+                user.setUserName(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+               
+               
+                
+                
+                
+ 
+                list.add( user);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+       
+       }else if(accessType=="student"){
+               
+            try {
+            Connection con = TecmisDB.getConnection();
+            String sql = "SELECT * FROM student";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            
+            
+            while(rs.next()){
+                User user = new User();
+                
+                user.setUserID(rs.getString("id"));
+                user.setNIC(rs.getString("nic"));
+                user.setFirstName(rs.getString("fname"));
+                user.setMiddleName(rs.getString("mname"));
+                user.setLastName(rs.getString("lname"));
+                user.setBirthDate(rs.getString("birth_date"));
+                user.setAddress(rs.getString("address"));
+                user.setSex(rs.getString("sex"));
+              
+                user.setPhoneNumner(rs.getString("phone_no"));
+                user.setUserName(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setLevel(rs.getString("level"));
+                user.setDepartmentID(rs.getString("department_id"));
+                user.setEmail(rs.getString("email"));
+               
+               
+                
+                
+                
+ 
+                list.add( user);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+       
+       }else if(accessType=="lecture"){
+           
+            try {
+            Connection con = TecmisDB.getConnection();
+            String sql = "SELECT * FROM lecturer";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            
+            
+            while(rs.next()){
+                User user = new User();
+                
+                user.setUserID(rs.getString("id"));
+                user.setNIC(rs.getString("nic"));
+                user.setFirstName(rs.getString("fname"));
+                user.setMiddleName(rs.getString("mname"));
+                user.setLastName(rs.getString("lname"));
+                user.setBirthDate(rs.getString("birth_date"));
+                user.setAddress(rs.getString("address"));
+                user.setSex(rs.getString("sex"));
+              
+                user.setPhoneNumner(rs.getString("phone_no"));
+                user.setUserName(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setDepartmentID(rs.getString("department_department_id"));
+               
+               
+                
+                
+                
+ 
+                list.add( user);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+       
+       }else if(accessType=="technical_officer"){
+           
+           try {
+            Connection con = TecmisDB.getConnection();
+            String sql = "SELECT * FROM technical_officer";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            
+            
+            while(rs.next()){
+                User user = new User();
+                
+                user.setUserID(rs.getString("id"));
+                user.setNIC(rs.getString("nic"));
+                user.setFirstName(rs.getString("fname"));
+                user.setMiddleName(rs.getString("mname"));
+                user.setLastName(rs.getString("lname"));
+                user.setBirthDate(rs.getString("birth_date"));
+                user.setAddress(rs.getString("address"));
+                user.setSex(rs.getString("sex"));
+              
+                user.setPhoneNumner(rs.getString("phone_no"));
+                user.setUserName(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setDepartmentID(rs.getString("department_department_id"));
+               
+               
+                
+                
+                
+ 
+                list.add( user);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+       }
+       
+       
+        return list;
+  
+    
+    }
+    
+    public  User get(String id, String accessType) {
+        User user = new User();
+        try {
+            Connection con = TecmisDB.getConnection();
+            String sql = "SELECT * FROM admin WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                
+                setUserID(rs.getString("id"));
+                setNIC(rs.getString("nic"));
+                setFirstName(rs.getString("fname"));
+                setMiddleName(rs.getString("mname"));
+                setLastName(rs.getString("lname"));
+                setBirthDate(rs.getString("birth_date"));
+                setAddress(rs.getString("address"));
+                setSex(rs.getString("sex"));
+              
+                setPhoneNumner(rs.getString("phone_no"));
+                setUserName(rs.getString("username"));
+                setPassword(rs.getString("password"));
+                setEmail(rs.getString("email"));
+                setImagePathe(rs.getString("image_path"));
+ 
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        return user;
+    }
+      
+      
+       
     
     
 }

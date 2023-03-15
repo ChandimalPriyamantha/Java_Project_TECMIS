@@ -108,22 +108,23 @@ public class Course {
     
     }
     
-      public  Course get(int id) {
+      public  Course get(String id) {
         Course course = new Course();
         try {
             Connection con = TecmisDB.getConnection();
             String sql = "SELECT * FROM course WHERE course_id=?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 
-                course.setCourseID(rs.getString("course_id"));
-                course.setLevel(rs.getInt("level"));
-                course.setCredit(rs.getInt("credit"));
-                course.setCourseName(rs.getString("course_name"));
-                course.setCourseType(rs.getString("course_type"));
-                course.setDepartmentID(rs.getString("department_department_id"));
+                setCourseID(rs.getString("course_id"));
+                setLevel(rs.getInt("level"));
+                setCredit(rs.getInt("credit"));
+                setCourseName(rs.getString("course_name"));
+                setCourseType(rs.getString("course_type"));
+                setDepartmentID(rs.getString("department_department_id"));
+               System.out.println(getCourseName());
  
             }
             
