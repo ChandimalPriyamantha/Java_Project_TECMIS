@@ -8,11 +8,16 @@ import com.tecmic.B05.user.User;
 import com.tecmis.B05.course.Course;
 import com.tecmis.B05.notice.Notice;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDateTime; 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -28,6 +33,7 @@ import javax.swing.table.DefaultTableModel;
 public class AdminForm extends javax.swing.JFrame {
       int search_notice;
       String Search_course;
+      String search_technical_officer;
     /**
      * Creates new form AdminForm
      */
@@ -41,7 +47,16 @@ public class AdminForm extends javax.swing.JFrame {
         UserLoad(12 , "technical_officer");
         delete.setEnabled(false);
         update.setEnabled(false);
-        
+        btnAdminUpload.setEnabled(false);
+        btnAdminDelete.setEnabled(false);
+        btnStudentUpdate.setEnabled(false);
+        btnStudentDelete.setEnabled(false);
+        btnLectureUpdate.setEnabled(false);
+        btnLectureDelete.setEnabled(false);
+        btnTecUpdate.setEnabled(false);
+        btnTecDelete.setEnabled(false);
+        btnCourseUpdate.setEnabled(false);
+        btnCourseDelete.setEnabled(false);
     }
 
     /**
@@ -85,12 +100,10 @@ public class AdminForm extends javax.swing.JFrame {
         jLabel119 = new javax.swing.JLabel();
         jLabel120 = new javax.swing.JLabel();
         user_email3 = new javax.swing.JTextField();
-        user_departmentID3 = new javax.swing.JTextField();
-        jLabel121 = new javax.swing.JLabel();
         jButton36 = new javax.swing.JButton();
-        jButton48 = new javax.swing.JButton();
-        jButton49 = new javax.swing.JButton();
-        jButton50 = new javax.swing.JButton();
+        btnAdminUpload = new javax.swing.JButton();
+        btnAdminSave = new javax.swing.JButton();
+        btnAdminDelete = new javax.swing.JButton();
         jButton51 = new javax.swing.JButton();
         jButton52 = new javax.swing.JButton();
         user_sex3 = new javax.swing.JComboBox<>();
@@ -128,9 +141,9 @@ public class AdminForm extends javax.swing.JFrame {
         user_departmentID2 = new javax.swing.JTextField();
         jLabel109 = new javax.swing.JLabel();
         jButton35 = new javax.swing.JButton();
-        jButton43 = new javax.swing.JButton();
-        jButton44 = new javax.swing.JButton();
-        jButton45 = new javax.swing.JButton();
+        btnStudentUpdate = new javax.swing.JButton();
+        btnStudentSave = new javax.swing.JButton();
+        btnStudentDelete = new javax.swing.JButton();
         jButton46 = new javax.swing.JButton();
         jButton47 = new javax.swing.JButton();
         user_sex2 = new javax.swing.JComboBox<>();
@@ -171,9 +184,9 @@ public class AdminForm extends javax.swing.JFrame {
         user_departmentID1 = new javax.swing.JTextField();
         jLabel98 = new javax.swing.JLabel();
         lecture_image_add = new javax.swing.JButton();
-        jButton38 = new javax.swing.JButton();
-        Save_Lecture = new javax.swing.JButton();
-        jButton40 = new javax.swing.JButton();
+        btnLectureUpdate = new javax.swing.JButton();
+        btnLectureSave = new javax.swing.JButton();
+        btnLectureDelete = new javax.swing.JButton();
         jButton41 = new javax.swing.JButton();
         jButton42 = new javax.swing.JButton();
         user_sex1 = new javax.swing.JComboBox<>();
@@ -211,9 +224,9 @@ public class AdminForm extends javax.swing.JFrame {
         user_departmentID = new javax.swing.JTextField();
         jLabel61 = new javax.swing.JLabel();
         jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
+        btnTecUpdate = new javax.swing.JButton();
+        btnTecSave = new javax.swing.JButton();
+        btnTecDelete = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
         jButton31 = new javax.swing.JButton();
         user_sex = new javax.swing.JComboBox<>();
@@ -238,9 +251,9 @@ public class AdminForm extends javax.swing.JFrame {
         txtcreadit = new javax.swing.JTextField();
         txtcourseNamae = new javax.swing.JTextField();
         txtDepatmentID = new javax.swing.JTextField();
-        jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
-        jButton24 = new javax.swing.JButton();
+        btnCourseUpdate = new javax.swing.JButton();
+        btnCourseSave = new javax.swing.JButton();
+        btnCourseDelete = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
         jButton30 = new javax.swing.JButton();
         jPanel22 = new javax.swing.JPanel();
@@ -398,12 +411,6 @@ public class AdminForm extends javax.swing.JFrame {
         user_email3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         user_email3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        user_departmentID3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        user_departmentID3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel121.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel121.setText("DPTID :");
-
         jButton36.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton36.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-add-new-30.png")); // NOI18N
         jButton36.setText("Add Image");
@@ -413,26 +420,41 @@ public class AdminForm extends javax.swing.JFrame {
             }
         });
 
-        jButton48.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton48.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-available-updates-24.png")); // NOI18N
-        jButton48.setText("Update");
-
-        jButton49.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton49.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-save-30.png")); // NOI18N
-        jButton49.setText("Save");
-        jButton49.addActionListener(new java.awt.event.ActionListener() {
+        btnAdminUpload.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAdminUpload.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-available-updates-24.png")); // NOI18N
+        btnAdminUpload.setText("Update");
+        btnAdminUpload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton49ActionPerformed(evt);
+                btnAdminUploadActionPerformed(evt);
             }
         });
 
-        jButton50.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton50.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-delete-document-30.png")); // NOI18N
-        jButton50.setText("Delete");
+        btnAdminSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAdminSave.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-save-30.png")); // NOI18N
+        btnAdminSave.setText("Save");
+        btnAdminSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminSaveActionPerformed(evt);
+            }
+        });
+
+        btnAdminDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAdminDelete.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-delete-document-30.png")); // NOI18N
+        btnAdminDelete.setText("Delete");
+        btnAdminDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminDeleteActionPerformed(evt);
+            }
+        });
 
         jButton51.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton51.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-search-30.png")); // NOI18N
         jButton51.setText("Search");
+        jButton51.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton51ActionPerformed(evt);
+            }
+        });
 
         jButton52.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton52.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-clear-symbol-30.png")); // NOI18N
@@ -493,18 +515,14 @@ public class AdminForm extends javax.swing.JFrame {
                                     .addComponent(user_BOD3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel30Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jButton49)
+                        .addComponent(btnAdminSave)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton48)
+                        .addComponent(btnAdminUpload)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton52, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton50))))
+                            .addComponent(btnAdminDelete))))
                 .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel30Layout.createSequentialGroup()
-                        .addComponent(jLabel121, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(user_departmentID3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel30Layout.createSequentialGroup()
                         .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel116, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -572,33 +590,31 @@ public class AdminForm extends javax.swing.JFrame {
                     .addComponent(User_LastName3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel120)
                     .addComponent(user_email3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(user_BOD3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel115)
-                    .addComponent(user_departmentID3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel121))
                 .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(user_BOD3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel115))
                         .addGap(35, 35, 35)
                         .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel112)
                             .addComponent(user_address3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel30Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(26, 26, 26)
                         .addComponent(image_lbl6, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23)
+                .addGap(75, 75, 75)
                 .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton49)
-                    .addComponent(jButton50)
+                    .addComponent(btnAdminUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdminSave)
+                    .addComponent(btnAdminDelete)
                     .addComponent(jButton51)
                     .addComponent(jButton36))
                 .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel30Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jButton52)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(31, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel30Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(image_path3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -668,7 +684,6 @@ public class AdminForm extends javax.swing.JFrame {
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 2, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -764,26 +779,41 @@ public class AdminForm extends javax.swing.JFrame {
             }
         });
 
-        jButton43.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton43.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-available-updates-24.png")); // NOI18N
-        jButton43.setText("Update");
-
-        jButton44.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton44.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-save-30.png")); // NOI18N
-        jButton44.setText("Save");
-        jButton44.addActionListener(new java.awt.event.ActionListener() {
+        btnStudentUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnStudentUpdate.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-available-updates-24.png")); // NOI18N
+        btnStudentUpdate.setText("Update");
+        btnStudentUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton44ActionPerformed(evt);
+                btnStudentUpdateActionPerformed(evt);
             }
         });
 
-        jButton45.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton45.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-delete-document-30.png")); // NOI18N
-        jButton45.setText("Delete");
+        btnStudentSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnStudentSave.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-save-30.png")); // NOI18N
+        btnStudentSave.setText("Save");
+        btnStudentSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStudentSaveActionPerformed(evt);
+            }
+        });
+
+        btnStudentDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnStudentDelete.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-delete-document-30.png")); // NOI18N
+        btnStudentDelete.setText("Delete");
+        btnStudentDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStudentDeleteActionPerformed(evt);
+            }
+        });
 
         jButton46.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton46.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-search-30.png")); // NOI18N
         jButton46.setText("Search");
+        jButton46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton46ActionPerformed(evt);
+            }
+        });
 
         jButton47.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton47.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-clear-symbol-30.png")); // NOI18N
@@ -852,13 +882,13 @@ public class AdminForm extends javax.swing.JFrame {
                                     .addComponent(user_BOD2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel29Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jButton44)
+                        .addComponent(btnStudentSave)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton43)
+                        .addComponent(btnStudentUpdate)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton47, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton45))))
+                            .addComponent(btnStudentDelete))))
                 .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel29Layout.createSequentialGroup()
                         .addComponent(jLabel109, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -951,9 +981,9 @@ public class AdminForm extends javax.swing.JFrame {
                             .addComponent(jLabel122))
                         .addGap(101, 101, 101)
                         .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton43, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton44)
-                            .addComponent(jButton45)
+                            .addComponent(btnStudentUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnStudentSave)
+                            .addComponent(btnStudentDelete)
                             .addComponent(jButton46)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1131,26 +1161,41 @@ public class AdminForm extends javax.swing.JFrame {
             }
         });
 
-        jButton38.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton38.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-available-updates-24.png")); // NOI18N
-        jButton38.setText("Update");
-
-        Save_Lecture.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Save_Lecture.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-save-30.png")); // NOI18N
-        Save_Lecture.setText("Save");
-        Save_Lecture.addActionListener(new java.awt.event.ActionListener() {
+        btnLectureUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLectureUpdate.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-available-updates-24.png")); // NOI18N
+        btnLectureUpdate.setText("Update");
+        btnLectureUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Save_LectureActionPerformed(evt);
+                btnLectureUpdateActionPerformed(evt);
             }
         });
 
-        jButton40.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton40.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-delete-document-30.png")); // NOI18N
-        jButton40.setText("Delete");
+        btnLectureSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLectureSave.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-save-30.png")); // NOI18N
+        btnLectureSave.setText("Save");
+        btnLectureSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLectureSaveActionPerformed(evt);
+            }
+        });
+
+        btnLectureDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLectureDelete.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-delete-document-30.png")); // NOI18N
+        btnLectureDelete.setText("Delete");
+        btnLectureDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLectureDeleteActionPerformed(evt);
+            }
+        });
 
         jButton41.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton41.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-search-30.png")); // NOI18N
         jButton41.setText("Search");
+        jButton41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton41ActionPerformed(evt);
+            }
+        });
 
         jButton42.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton42.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-clear-symbol-30.png")); // NOI18N
@@ -1211,13 +1256,13 @@ public class AdminForm extends javax.swing.JFrame {
                                     .addComponent(user_BOD1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel28Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(Save_Lecture)
+                        .addComponent(btnLectureSave)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton38)
+                        .addComponent(btnLectureUpdate)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton42, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton40))))
+                            .addComponent(btnLectureDelete))))
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel28Layout.createSequentialGroup()
                         .addComponent(jLabel98, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1307,9 +1352,9 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(image_lbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton38)
-                    .addComponent(Save_Lecture)
-                    .addComponent(jButton40)
+                    .addComponent(btnLectureUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLectureSave)
+                    .addComponent(btnLectureDelete)
                     .addComponent(jButton41)
                     .addComponent(lecture_image_add))
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1476,26 +1521,41 @@ public class AdminForm extends javax.swing.JFrame {
             }
         });
 
-        jButton17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton17.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-available-updates-24.png")); // NOI18N
-        jButton17.setText("Update");
-
-        jButton18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton18.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-save-30.png")); // NOI18N
-        jButton18.setText("Save");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        btnTecUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnTecUpdate.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-available-updates-24.png")); // NOI18N
+        btnTecUpdate.setText("Update");
+        btnTecUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                btnTecUpdateActionPerformed(evt);
             }
         });
 
-        jButton19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton19.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-delete-document-30.png")); // NOI18N
-        jButton19.setText("Delete");
+        btnTecSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnTecSave.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-save-30.png")); // NOI18N
+        btnTecSave.setText("Save");
+        btnTecSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTecSaveActionPerformed(evt);
+            }
+        });
+
+        btnTecDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnTecDelete.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-delete-document-30.png")); // NOI18N
+        btnTecDelete.setText("Delete");
+        btnTecDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTecDeleteActionPerformed(evt);
+            }
+        });
 
         jButton20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton20.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-search-30.png")); // NOI18N
         jButton20.setText("Search");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
 
         jButton31.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton31.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-clear-symbol-30.png")); // NOI18N
@@ -1556,13 +1616,13 @@ public class AdminForm extends javax.swing.JFrame {
                                     .addComponent(user_BOD, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jButton18)
+                        .addComponent(btnTecSave)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton17)
+                        .addComponent(btnTecUpdate)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton19))))
+                            .addComponent(btnTecDelete))))
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1652,9 +1712,9 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(image_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton17)
-                    .addComponent(jButton18)
-                    .addComponent(jButton19)
+                    .addComponent(btnTecUpdate)
+                    .addComponent(btnTecSave)
+                    .addComponent(btnTecDelete)
                     .addComponent(jButton20)
                     .addComponent(jButton16))
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1776,30 +1836,30 @@ public class AdminForm extends javax.swing.JFrame {
         txtDepatmentID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDepatmentID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton22.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton22.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-available-updates-24.png")); // NOI18N
-        jButton22.setText("Update");
-        jButton22.addActionListener(new java.awt.event.ActionListener() {
+        btnCourseUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCourseUpdate.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-available-updates-24.png")); // NOI18N
+        btnCourseUpdate.setText("Update");
+        btnCourseUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton22ActionPerformed(evt);
+                btnCourseUpdateActionPerformed(evt);
             }
         });
 
-        jButton23.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton23.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-save-30.png")); // NOI18N
-        jButton23.setText("Save");
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
+        btnCourseSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCourseSave.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-save-30.png")); // NOI18N
+        btnCourseSave.setText("Save");
+        btnCourseSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
+                btnCourseSaveActionPerformed(evt);
             }
         });
 
-        jButton24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton24.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-delete-document-30.png")); // NOI18N
-        jButton24.setText("Delete");
-        jButton24.addActionListener(new java.awt.event.ActionListener() {
+        btnCourseDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCourseDelete.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-delete-document-30.png")); // NOI18N
+        btnCourseDelete.setText("Delete");
+        btnCourseDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton24ActionPerformed(evt);
+                btnCourseDeleteActionPerformed(evt);
             }
         });
 
@@ -1852,11 +1912,11 @@ public class AdminForm extends javax.swing.JFrame {
                                     .addComponent(txtDepatmentID, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel21Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCourseSave, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCourseUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCourseDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton25)
                         .addGap(18, 18, 18)
@@ -1893,9 +1953,9 @@ public class AdminForm extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton25)
-                    .addComponent(jButton23)
-                    .addComponent(jButton22)
-                    .addComponent(jButton24)
+                    .addComponent(btnCourseSave)
+                    .addComponent(btnCourseUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCourseDelete)
                     .addComponent(jButton30))
                 .addGap(25, 25, 25))
         );
@@ -2193,7 +2253,8 @@ public class AdminForm extends javax.swing.JFrame {
                 "Notice ID", "Title", "Date & Time", "Body"
             }
         ));
-        table.setGridColor(new java.awt.Color(0, 0, 153));
+        table.setGridColor(new java.awt.Color(0, 153, 153));
+        table.setSelectionBackground(new java.awt.Color(45, 182, 171));
         jScrollPane7.setViewportView(table);
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
@@ -2510,9 +2571,13 @@ public class AdminForm extends javax.swing.JFrame {
         txtCourseType.setText("");
         txtDepatmentID.setText("");
         txtCourseID.setText("");
+        
+        btnCourseUpdate.setEnabled(false);
+        btnCourseDelete.setEnabled(false);
+        btnCourseSave.setEnabled(true);
     }//GEN-LAST:event_jButton30ActionPerformed
 
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+    private void btnCourseSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCourseSaveActionPerformed
         // TODO add your handling code here:
         
         String course_id = txtCourseID.getText();
@@ -2544,7 +2609,7 @@ public class AdminForm extends javax.swing.JFrame {
         txtDepatmentID.setText("");
         txtCourseID.setText("");
         
-    }//GEN-LAST:event_jButton23ActionPerformed
+    }//GEN-LAST:event_btnCourseSaveActionPerformed
     
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
         // TODO add your handling code here:
@@ -2561,12 +2626,12 @@ public class AdminForm extends javax.swing.JFrame {
         txtDepatmentID.setText(co.getDepartmentID());
         System.out.println(co.getCourseName());
         
-        save.setEnabled(false);
-        delete.setEnabled(true);
-        update.setEnabled(true);
+        btnCourseUpdate.setEnabled(true);
+        btnCourseDelete.setEnabled(true);
+        btnCourseSave.setEnabled(false);
     }//GEN-LAST:event_jButton25ActionPerformed
 
-    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+    private void btnCourseUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCourseUpdateActionPerformed
         // TODO add your handling code here:
         
         //String course_id = txtCourseID.getText();
@@ -2597,9 +2662,13 @@ public class AdminForm extends javax.swing.JFrame {
         txtCourseType.setText("");
         txtDepatmentID.setText("");
         txtCourseID.setText("");
-    }//GEN-LAST:event_jButton22ActionPerformed
+        
+        btnCourseUpdate.setEnabled(false);
+        btnCourseDelete.setEnabled(false);
+        btnCourseSave.setEnabled(true);
+    }//GEN-LAST:event_btnCourseUpdateActionPerformed
 
-    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+    private void btnCourseDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCourseDeleteActionPerformed
         // TODO add your handling code here:
         
        Course course = new Course();
@@ -2622,18 +2691,37 @@ public class AdminForm extends javax.swing.JFrame {
         txtDepatmentID.setText("");
         txtCourseID.setText("");
         
-        save.setEnabled(true);
-        delete.setEnabled(false);
-        update.setEnabled(false);
-    }//GEN-LAST:event_jButton24ActionPerformed
+        btnCourseUpdate.setEnabled(false);
+        btnCourseDelete.setEnabled(false);
+        btnCourseSave.setEnabled(true);
+    }//GEN-LAST:event_btnCourseDeleteActionPerformed
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
         // TODO add your handling code here:
         image_lbl.setIcon(null);
         image_lbl.setText("Set Profile Pic");
+        User_ID.setText("");
+        User_NIC.setText("");
+        User_FirstName.setText("");
+        User_MiddleName.setText("");
+        User_LastName.setText("");
+        user_BOD.setText("");
+        user_address.setText("");
+        user_sex.setSelectedIndex(0);
+        user_phoneNumber.setText("");
+        user_phoneNumber.setText("");
+        user_userName.setText("");
+        user_passowrd.setText("");
+        user_email.setText("");
+        image_path.setText("");
+        user_departmentID.setText("");
+        
+        btnTecUpdate.setEnabled(false);
+        btnTecDelete.setEnabled(false);
+        btnTecSave.setEnabled(true);
     }//GEN-LAST:event_jButton31ActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void btnTecSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTecSaveActionPerformed
         // TODO add your handling code here:
         Admin admin = new Admin();
         
@@ -2679,7 +2767,7 @@ public class AdminForm extends javax.swing.JFrame {
         image_path.setText("");
         user_departmentID.setText("");
         
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_btnTecSaveActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
@@ -2727,7 +2815,7 @@ public class AdminForm extends javax.swing.JFrame {
         image_lbl4.setIcon(icon);
     }//GEN-LAST:event_lecture_image_addActionPerformed
 
-    private void Save_LectureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Save_LectureActionPerformed
+    private void btnLectureSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLectureSaveActionPerformed
         // TODO add your handling code here:
         
         Admin admin = new Admin();
@@ -2773,7 +2861,7 @@ public class AdminForm extends javax.swing.JFrame {
         user_email1.setText("");
         image_path1.setText("");
         user_departmentID1.setText("");
-    }//GEN-LAST:event_Save_LectureActionPerformed
+    }//GEN-LAST:event_btnLectureSaveActionPerformed
 
     private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
         // TODO add your handling code here:
@@ -2783,6 +2871,7 @@ public class AdminForm extends javax.swing.JFrame {
         User_NIC1.setText("");
         User_FirstName1.setText("");
         User_MiddleName1.setText("");
+         user_BOD1.setText("");
         User_LastName1.setText("");
         user_address1.setText("");
         user_sex1.setSelectedIndex(0);
@@ -2793,6 +2882,10 @@ public class AdminForm extends javax.swing.JFrame {
         user_email1.setText("");
         image_path1.setText("");
         user_departmentID1.setText("");
+        
+        btnLectureUpdate.setEnabled(false);
+        btnLectureDelete.setEnabled(false);
+        btnLectureSave.setEnabled(true);
     }//GEN-LAST:event_jButton42ActionPerformed
 
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
@@ -2818,7 +2911,7 @@ public class AdminForm extends javax.swing.JFrame {
         image_lbl5.setIcon(icon);
     }//GEN-LAST:event_jButton35ActionPerformed
 
-    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+    private void btnStudentSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentSaveActionPerformed
         // TODO add your handling code here:
         
         Admin admin = new Admin();
@@ -2865,10 +2958,33 @@ public class AdminForm extends javax.swing.JFrame {
         image_path2.setText("");
         user_departmentID2.setText("");
         student_level.setText("");
-    }//GEN-LAST:event_jButton44ActionPerformed
+    }//GEN-LAST:event_btnStudentSaveActionPerformed
 
     private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
         // TODO add your handling code here:
+        
+        User_ID2.setText("");
+        User_NIC2.setText("");
+        User_FirstName2.setText("");
+        User_MiddleName2.setText("");
+        User_LastName2.setText("");
+        user_BOD2.setText("");
+        user_address2.setText("");
+        user_sex2.setSelectedItem(0);
+        user_phoneNumber2.setText("");
+     
+        user_userName2.setText("");
+        user_passowrd2.setText("");
+        user_email2.setText("");
+        image_path2.setText("");
+        student_level.setText("");
+        user_departmentID2.setText("");
+        image_lbl5.setIcon(null);
+        image_lbl5.setText("Set Profile Pic");
+        
+         btnStudentUpdate.setEnabled(false);
+         btnStudentDelete.setEnabled(false);
+         btnStudentSave.setEnabled(true);
     }//GEN-LAST:event_jButton47ActionPerformed
 
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
@@ -2895,7 +3011,7 @@ public class AdminForm extends javax.swing.JFrame {
         image_lbl6.setIcon(icon);
     }//GEN-LAST:event_jButton36ActionPerformed
 
-    private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
+    private void btnAdminSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminSaveActionPerformed
         // TODO add your handling code here:
         Admin admin = new Admin();
         
@@ -2914,7 +3030,7 @@ public class AdminForm extends javax.swing.JFrame {
         admin.setPassword(user_passowrd3.getText());
         admin.setEmail(user_email3.getText());
         admin.setImagePathe(image_path3.getText());
-        admin.setDepartmentID(user_departmentID3.getText());
+       
        
         
         
@@ -2939,8 +3055,8 @@ public class AdminForm extends javax.swing.JFrame {
         user_passowrd3.setText("");
         user_email3.setText("");
         image_path3.setText("");
-        user_departmentID3.setText("");
-    }//GEN-LAST:event_jButton49ActionPerformed
+        
+    }//GEN-LAST:event_btnAdminSaveActionPerformed
 
     private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
         // TODO add your handling code here:
@@ -2951,6 +3067,7 @@ public class AdminForm extends javax.swing.JFrame {
         User_NIC3.setText("");
         User_FirstName3.setText("");
         User_MiddleName3.setText("");
+        user_BOD3.setText("");
         User_LastName3.setText("");
         user_address3.setText("");
         user_sex3.setSelectedIndex(0);
@@ -2960,8 +3077,516 @@ public class AdminForm extends javax.swing.JFrame {
         user_passowrd3.setText("");
         user_email3.setText("");
         image_path3.setText("");
-        user_departmentID3.setText("");
+        
+        btnAdminUpload.setEnabled(false);
+        btnAdminDelete.setEnabled(false);
+        btnAdminSave.setEnabled(true);
+        
     }//GEN-LAST:event_jButton52ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+        search_technical_officer =JOptionPane.showInputDialog("Enter Student ID");
+
+        Admin admin = new Admin();
+        admin.get( search_technical_officer,"technical_officer");
+
+        User_ID.setText(admin.getUserID());
+        User_NIC.setText(admin.getNIC());
+        User_FirstName.setText(admin.getFirstName());
+        User_MiddleName.setText(admin.getMiddleName());
+        User_LastName.setText(admin.getLastName());
+        user_BOD.setText(admin.getBirthDate());
+        user_address.setText(admin.getAddress());
+        user_sex.setSelectedItem(admin.getSex());
+        user_phoneNumber.setText(admin.getPhoneNumner());
+     
+        user_userName.setText(admin.getUserName());
+        user_passowrd.setText(admin.getPassword());
+        user_email.setText(admin.getEmail());
+        image_path.setText(admin.getImagePathe());
+        user_departmentID.setText(admin.getDepartmentID());
+        
+         try {
+            BufferedImage image = ImageIO.read(new File(admin.getImagePathe()));
+            ImageIcon icon = new ImageIcon(image);
+            image_lbl.setIcon(icon);
+        } catch (IOException ex) {
+            //Logger.getLogger(student_add.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+        btnTecUpdate.setEnabled(true);
+        btnTecDelete.setEnabled(true);
+        btnTecSave.setEnabled(false);
+    }//GEN-LAST:event_jButton20ActionPerformed
+    String  search_lecture;
+    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+        // TODO add your handling code here:
+        
+        search_lecture =JOptionPane.showInputDialog("Enter Student ID");
+
+        Admin admin = new Admin();
+        admin.get(  search_lecture,"lecture");
+
+        User_ID1.setText(admin.getUserID());
+        User_NIC1.setText(admin.getNIC());
+        User_FirstName1.setText(admin.getFirstName());
+        User_MiddleName1.setText(admin.getMiddleName());
+        User_LastName1.setText(admin.getLastName());
+        user_BOD1.setText(admin.getBirthDate());
+        user_address1.setText(admin.getAddress());
+        user_sex1.setSelectedItem(admin.getSex());
+        user_phoneNumber1.setText(admin.getPhoneNumner());
+     
+        user_userName1.setText(admin.getUserName());
+        user_passowrd1.setText(admin.getPassword());
+        user_email1.setText(admin.getEmail());
+        image_path1.setText(admin.getImagePathe());
+        user_departmentID1.setText(admin.getDepartmentID());
+        
+         try {
+            BufferedImage image = ImageIO.read(new File(admin.getImagePathe()));
+            ImageIcon icon = new ImageIcon(image);
+            image_lbl4.setIcon(icon);
+        } catch (IOException ex) {
+            //Logger.getLogger(student_add.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+        btnLectureUpdate.setEnabled(true);
+        btnLectureDelete.setEnabled(true);
+        btnLectureSave.setEnabled(false);
+    }//GEN-LAST:event_jButton41ActionPerformed
+    
+    String search_student;
+    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
+        // TODO add your handling code here:
+        
+        search_student =JOptionPane.showInputDialog("Enter Student ID");
+
+        Admin admin = new Admin();
+        admin.get(  search_student,"student");
+
+        User_ID2.setText(admin.getUserID());
+        User_NIC2.setText(admin.getNIC());
+        User_FirstName2.setText(admin.getFirstName());
+        User_MiddleName2.setText(admin.getMiddleName());
+        User_LastName2.setText(admin.getLastName());
+        user_BOD2.setText(admin.getBirthDate());
+        user_address2.setText(admin.getAddress());
+        user_sex2.setSelectedItem(admin.getSex());
+        user_phoneNumber2.setText(admin.getPhoneNumner());
+     
+        user_userName2.setText(admin.getUserName());
+        user_passowrd2.setText(admin.getPassword());
+        user_email2.setText(admin.getEmail());
+        image_path2.setText(admin.getImagePathe());
+        student_level.setText(admin.getLevel());
+        user_departmentID2.setText(admin.getDepartmentID());
+        
+         try {
+            BufferedImage image = ImageIO.read(new File(admin.getImagePathe()));
+            ImageIcon icon = new ImageIcon(image);
+            image_lbl5.setIcon(icon);
+        } catch (IOException ex) {
+            //Logger.getLogger(student_add.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         btnStudentUpdate.setEnabled(true);
+         btnStudentDelete.setEnabled(true);
+         btnStudentSave.setEnabled(false);
+    }//GEN-LAST:event_jButton46ActionPerformed
+    
+    String  search_admin ;
+    private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
+        // TODO add your handling code here:
+        search_admin =JOptionPane.showInputDialog("Enter Student ID");
+
+        Admin admin = new Admin();
+        admin.get(   search_admin,"admin");
+
+        User_ID3.setText(admin.getUserID());
+        User_NIC3.setText(admin.getNIC());
+        User_FirstName3.setText(admin.getFirstName());
+        User_MiddleName3.setText(admin.getMiddleName());
+        User_LastName3.setText(admin.getLastName());
+        user_BOD3.setText(admin.getBirthDate());
+        user_address3.setText(admin.getAddress());
+        user_sex3.setSelectedItem(admin.getSex());
+        user_phoneNumber3.setText(admin.getPhoneNumner());
+     
+        user_userName3.setText(admin.getUserName());
+        user_passowrd3.setText(admin.getPassword());
+        user_email3.setText(admin.getEmail());
+        image_path3.setText(admin.getImagePathe());
+        
+        
+         try {
+            BufferedImage image = ImageIO.read(new File(admin.getImagePathe()));
+            ImageIcon icon = new ImageIcon(image);
+            image_lbl6.setIcon(icon);
+        } catch (IOException ex) {
+            //Logger.getLogger(student_add.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+        btnAdminUpload.setEnabled(true);
+        btnAdminDelete.setEnabled(true);
+        btnAdminSave.setEnabled(false);
+    }//GEN-LAST:event_jButton51ActionPerformed
+
+    private void btnTecUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTecUpdateActionPerformed
+        // TODO add your handling code here:
+        Admin admin = new Admin();
+        
+        admin.setLogingState("technical_officer");
+        
+        admin.setUserID(User_ID.getText());
+        admin.setNIC(User_NIC.getText());
+        admin.setFirstName(User_FirstName.getText());
+        admin.setMiddleName(User_MiddleName.getText());
+        admin.setLastName(User_LastName.getText());
+        admin.setBirthDate(user_BOD.getText());
+        admin.setAddress(user_address.getText());
+        admin.setSex(user_sex.getSelectedItem().toString());
+        admin.setPhoneNumner(user_phoneNumber.getText());
+        admin.setUserName(user_userName.getText());
+        admin.setPassword(user_passowrd.getText());
+        admin.setEmail(user_email.getText());
+        admin.setImagePathe(image_path.getText());
+        
+        admin.setDepartmentID(user_departmentID.getText());
+        
+        
+        
+        admin.UpdateUser(admin);
+        
+        UserLoad(12 , "technical_officer");
+        
+        image_lbl.setIcon(null);
+        image_lbl.setText("Set Profile Pic");
+        User_ID.setText("");
+        User_NIC.setText("");
+        User_FirstName.setText("");
+        User_MiddleName.setText("");
+        User_LastName.setText("");
+        user_BOD.setText("");
+        user_address.setText("");
+        user_sex.setSelectedIndex(0);
+        user_phoneNumber.setText("");
+        user_phoneNumber.setText("");
+        user_userName.setText("");
+        user_passowrd.setText("");
+        user_email.setText("");
+        image_path.setText("");
+        user_departmentID.setText("");
+        
+        btnTecUpdate.setEnabled(false);
+        btnTecDelete.setEnabled(false);
+        btnTecSave.setEnabled(true);
+    }//GEN-LAST:event_btnTecUpdateActionPerformed
+
+    private void btnLectureUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLectureUpdateActionPerformed
+        // TODO add your handling code here:
+        
+        Admin admin = new Admin();
+        
+        admin.setLogingState("lecture");
+        
+        admin.setUserID(User_ID1.getText());
+        admin.setNIC(User_NIC1.getText());
+        admin.setFirstName(User_FirstName1.getText());
+        admin.setMiddleName(User_MiddleName1.getText());
+        admin.setLastName(User_LastName1.getText());
+        admin.setBirthDate(user_BOD1.getText());
+        admin.setAddress(user_address1.getText());
+        admin.setSex(user_sex1.getSelectedItem().toString());
+        admin.setPhoneNumner(user_phoneNumber1.getText());
+        admin.setUserName(user_userName1.getText());
+        admin.setPassword(user_passowrd1.getText());
+        admin.setEmail(user_email1.getText());
+        admin.setImagePathe(image_path1.getText());
+        
+        admin.setDepartmentID(user_departmentID1.getText());
+        
+        
+        
+        admin.UpdateUser(admin);
+        UserLoad("lecture" , 7);
+        
+        image_lbl4.setIcon(null);
+        image_lbl4.setText("Set Profile Pic");
+        User_ID1.setText("");
+        User_NIC1.setText("");
+        User_FirstName1.setText("");
+        User_MiddleName1.setText("");
+        User_LastName1.setText("");
+        User_LastName1.setText("");
+        user_BOD1.setText("");
+        user_address1.setText("");
+        user_sex1.setSelectedIndex(0);
+        user_phoneNumber1.setText("");
+        user_phoneNumber1.setText("");
+        user_userName1.setText("");
+        user_passowrd1.setText("");
+        user_email1.setText("");
+        image_path1.setText("");
+        user_departmentID1.setText("");
+        
+        btnLectureUpdate.setEnabled(false);
+        btnLectureDelete.setEnabled(false);
+        btnLectureSave.setEnabled(true);
+    }//GEN-LAST:event_btnLectureUpdateActionPerformed
+
+    private void btnStudentUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentUpdateActionPerformed
+        // TODO add your handling code here:
+         Admin admin = new Admin();
+        
+        admin.setLogingState("student");
+        
+        admin.setUserID(User_ID2.getText());
+        admin.setNIC(User_NIC2.getText());
+        admin.setFirstName(User_FirstName2.getText());
+        admin.setMiddleName(User_MiddleName2.getText());
+        admin.setLastName(User_LastName2.getText());
+        admin.setBirthDate(user_BOD2.getText());
+        admin.setAddress(user_address2.getText());
+        admin.setSex(user_sex2.getSelectedItem().toString());
+        admin.setPhoneNumner(user_phoneNumber2.getText());
+        admin.setUserName(user_userName2.getText());
+        admin.setPassword(user_passowrd2.getText());
+        admin.setEmail(user_email2.getText());
+        admin.setImagePathe(student_image_path.getText());
+        admin.setDepartmentID(user_departmentID2.getText());
+        admin.setLevel(student_level.getText());
+        
+        
+        
+        
+        admin.UpdateUser(admin);
+        UserLoad("Student", "Student");
+        
+        image_lbl5.setIcon(null);
+        image_lbl5.setText("Set Profile Pic");
+        User_ID2.setText("");
+        User_NIC2.setText("");
+        User_FirstName2.setText("");
+        User_MiddleName2.setText("");
+        User_LastName2.setText("");
+        user_BOD2.setText("");
+        user_address2.setText("");
+        user_sex2.setSelectedIndex(0);
+        user_phoneNumber2.setText("");
+        user_phoneNumber2.setText("");
+        user_userName2.setText("");
+        user_passowrd2.setText("");
+        user_email2.setText("");
+        image_path2.setText("");
+        user_departmentID2.setText("");
+        student_level.setText("");
+        
+         btnStudentUpdate.setEnabled(false);
+         btnStudentDelete.setEnabled(false);
+         btnStudentSave.setEnabled(true);
+    }//GEN-LAST:event_btnStudentUpdateActionPerformed
+
+    private void btnAdminUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminUploadActionPerformed
+        // TODO add your handling code here:
+        Admin admin = new Admin();
+        
+        admin.setLogingState("admin");
+        
+        admin.setUserID(User_ID3.getText());
+        admin.setNIC(User_NIC3.getText());
+        admin.setFirstName(User_FirstName3.getText());
+        admin.setMiddleName(User_MiddleName3.getText());
+        admin.setLastName(User_LastName3.getText());
+        admin.setBirthDate(user_BOD3.getText());
+        admin.setAddress(user_address3.getText());
+        admin.setSex(user_sex3.getSelectedItem().toString());
+        admin.setPhoneNumner(user_phoneNumber3.getText());
+        admin.setUserName(user_userName3.getText());
+        admin.setPassword(user_passowrd3.getText());
+        admin.setEmail(user_email3.getText());
+        admin.setImagePathe(image_path3.getText());
+       
+       
+        
+        
+        
+        
+        admin.UpdateUser(admin);
+        UserLoad("Admin"); 
+        
+        image_lbl6.setIcon(null);
+        image_lbl6.setText("Set Profile Pic");
+        User_ID3.setText("");
+        User_NIC3.setText("");
+        User_FirstName3.setText("");
+        User_MiddleName3.setText("");
+        User_LastName3.setText("");
+        user_BOD3.setText("");
+        user_address3.setText("");
+        user_sex3.setSelectedIndex(0);
+        user_phoneNumber3.setText("");
+        user_phoneNumber3.setText("");
+        user_userName3.setText("");
+        user_passowrd3.setText("");
+        user_email3.setText("");
+        image_path3.setText("");
+        
+        btnAdminUpload.setEnabled(false);
+        btnAdminDelete.setEnabled(false);
+        btnAdminSave.setEnabled(true);
+    }//GEN-LAST:event_btnAdminUploadActionPerformed
+
+    private void btnAdminDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminDeleteActionPerformed
+        // TODO add your handling code here:
+        
+       Admin admin = new Admin();
+       
+       admin.setLogingState("admin");
+       admin.setUserID((search_admin));
+       
+      
+       admin.DeleteUser(admin);
+       
+        
+        
+        
+        
+        UserLoad("Admin"); 
+        image_lbl6.setIcon(null);
+        image_lbl6.setText("Set Profile Pic");
+        User_ID3.setText("");
+        User_NIC3.setText("");
+        User_FirstName3.setText("");
+        User_MiddleName3.setText("");
+        User_LastName3.setText("");
+        user_BOD3.setText("");
+        user_address3.setText("");
+        user_sex3.setSelectedIndex(0);
+        user_phoneNumber3.setText("");
+        user_phoneNumber3.setText("");
+        user_userName3.setText("");
+        user_passowrd3.setText("");
+        user_email3.setText("");
+        image_path3.setText("");
+        
+        btnAdminUpload.setEnabled(false);
+        btnAdminDelete.setEnabled(false);
+        btnAdminSave.setEnabled(true);
+    }//GEN-LAST:event_btnAdminDeleteActionPerformed
+
+    private void btnStudentDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentDeleteActionPerformed
+        // TODO add your handling code here:
+        Admin admin = new Admin();
+       
+        admin.setLogingState("student");
+        admin.setUserID((search_student));
+       
+      
+        admin.DeleteUser(admin);
+       
+       
+       
+        UserLoad("Student", "Student");
+        
+        image_lbl5.setIcon(null);
+        image_lbl5.setText("Set Profile Pic");
+        User_ID2.setText("");
+        User_NIC2.setText("");
+        User_FirstName2.setText("");
+        User_MiddleName2.setText("");
+        User_LastName2.setText("");
+        user_BOD2.setText("");
+        user_address2.setText("");
+        user_sex2.setSelectedIndex(0);
+        user_phoneNumber2.setText("");
+        user_phoneNumber2.setText("");
+        user_userName2.setText("");
+        user_passowrd2.setText("");
+        user_email2.setText("");
+        image_path2.setText("");
+        user_departmentID2.setText("");
+        student_level.setText("");
+        
+         btnStudentUpdate.setEnabled(false);
+         btnStudentDelete.setEnabled(false);
+         btnStudentSave.setEnabled(true);
+    }//GEN-LAST:event_btnStudentDeleteActionPerformed
+
+    private void btnLectureDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLectureDeleteActionPerformed
+        // TODO add your handling code here:
+        Admin admin = new Admin();
+       
+        admin.setLogingState("lecture");
+        admin.setUserID((search_lecture));
+       
+      
+        admin.DeleteUser(admin);
+        
+        UserLoad("lecture" , 7);
+        
+        image_lbl4.setIcon(null);
+        image_lbl4.setText("Set Profile Pic");
+        User_ID1.setText("");
+        User_NIC1.setText("");
+        User_FirstName1.setText("");
+        User_MiddleName1.setText("");
+        User_LastName1.setText("");
+        User_LastName1.setText("");
+        user_BOD1.setText("");
+        user_address1.setText("");
+        user_sex1.setSelectedIndex(0);
+        user_phoneNumber1.setText("");
+        user_phoneNumber1.setText("");
+        user_userName1.setText("");
+        user_passowrd1.setText("");
+        user_email1.setText("");
+        image_path1.setText("");
+        user_departmentID1.setText("");
+        
+        btnLectureUpdate.setEnabled(false);
+        btnLectureDelete.setEnabled(false);
+        btnLectureSave.setEnabled(true);
+       
+    }//GEN-LAST:event_btnLectureDeleteActionPerformed
+
+    private void btnTecDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTecDeleteActionPerformed
+        // TODO add your handling code here:
+        
+        Admin admin = new Admin();
+       
+        admin.setLogingState("technical_officer");
+        admin.setUserID((search_technical_officer));
+       
+      
+        admin.DeleteUser(admin);
+        
+        UserLoad(12 , "technical_officer");
+        
+        image_lbl.setIcon(null);
+        image_lbl.setText("Set Profile Pic");
+        User_ID.setText("");
+        User_NIC.setText("");
+        User_FirstName.setText("");
+        User_MiddleName.setText("");
+        User_LastName.setText("");
+        user_BOD.setText("");
+        user_address.setText("");
+        user_sex.setSelectedIndex(0);
+        user_phoneNumber.setText("");
+        user_phoneNumber.setText("");
+        user_userName.setText("");
+        user_passowrd.setText("");
+        user_email.setText("");
+        image_path.setText("");
+        user_departmentID.setText("");
+        
+        btnTecUpdate.setEnabled(false);
+        btnTecDelete.setEnabled(false);
+        btnTecSave.setEnabled(true);
+    }//GEN-LAST:event_btnTecDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2998,7 +3623,6 @@ public class AdminForm extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Save_Lecture;
     private javax.swing.JButton Serch;
     private javax.swing.JTextField User_FirstName;
     private javax.swing.JTextField User_FirstName1;
@@ -3021,6 +3645,21 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JTextField User_NIC2;
     private javax.swing.JTextField User_NIC3;
     private javax.swing.JTable admin_table;
+    private javax.swing.JButton btnAdminDelete;
+    private javax.swing.JButton btnAdminSave;
+    private javax.swing.JButton btnAdminUpload;
+    private javax.swing.JButton btnCourseDelete;
+    private javax.swing.JButton btnCourseSave;
+    private javax.swing.JButton btnCourseUpdate;
+    private javax.swing.JButton btnLectureDelete;
+    private javax.swing.JButton btnLectureSave;
+    private javax.swing.JButton btnLectureUpdate;
+    private javax.swing.JButton btnStudentDelete;
+    private javax.swing.JButton btnStudentSave;
+    private javax.swing.JButton btnStudentUpdate;
+    private javax.swing.JButton btnTecDelete;
+    private javax.swing.JButton btnTecSave;
+    private javax.swing.JButton btnTecUpdate;
     private javax.swing.JButton delete;
     private javax.swing.JLabel image_lbl;
     private javax.swing.JLabel image_lbl4;
@@ -3031,13 +3670,7 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JLabel image_path2;
     private javax.swing.JLabel image_path3;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton29;
@@ -3045,18 +3678,10 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton38;
-    private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
-    private javax.swing.JButton jButton43;
-    private javax.swing.JButton jButton44;
-    private javax.swing.JButton jButton45;
     private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton47;
-    private javax.swing.JButton jButton48;
-    private javax.swing.JButton jButton49;
-    private javax.swing.JButton jButton50;
     private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton52;
     private javax.swing.JFileChooser jFileChooser1;
@@ -3082,7 +3707,6 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel120;
-    private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel122;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel48;
@@ -3194,7 +3818,6 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JTextField user_departmentID;
     private javax.swing.JTextField user_departmentID1;
     private javax.swing.JTextField user_departmentID2;
-    private javax.swing.JTextField user_departmentID3;
     private javax.swing.JTextField user_email;
     private javax.swing.JTextField user_email1;
     private javax.swing.JTextField user_email2;
