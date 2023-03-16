@@ -1,39 +1,43 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.tecmis.BO5.student;
 
 import com.tecmic.B05.user.User;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
- * @author Vivobook
+ * @author ACER
  */
 public class Student extends User
 {
-    public void updateDetails()
-    {
-        
+    
+    private String level;
+    
+   
+    public Student() 
+    {      
+        String q="SELECT level FROM STUDENT WHERE id= ";
     }
     
-    public void viewMedical()
+    public String getlevel()
     {
-        
+        return level;
+    }
+
+    public void setlevel(String level) 
+    {
+        this.level = level;
     }
     
-    public void viewAttendece()
-    {
-        
+    public static void main(String[] args) {
+        Student s=new Student();
     }
     
-    public  void CourseDeatils()
-    {
-        
-    }
-    
-    public void viewResult()
-    {
-        
-    }
 }
+
+
