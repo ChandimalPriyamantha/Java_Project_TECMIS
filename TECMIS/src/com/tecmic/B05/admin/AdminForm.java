@@ -2426,7 +2426,7 @@ public class AdminForm extends javax.swing.JFrame {
      
      public void UserLoad(int key1, String key2){
         
-         User user = new User();
+        User user = new User();
         List<User> list = user.list("technical_officer");
         DefaultTableModel DFT = (DefaultTableModel) technical_officer_table.getModel();
         DFT.setRowCount(0);

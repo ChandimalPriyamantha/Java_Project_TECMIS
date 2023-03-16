@@ -5,7 +5,7 @@
 package com.tecmic.B05.user;
 
 import com.tecmic.B05.TecmisDB.TecmisDB;
-import com.tecmis.B05.course.Course;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
