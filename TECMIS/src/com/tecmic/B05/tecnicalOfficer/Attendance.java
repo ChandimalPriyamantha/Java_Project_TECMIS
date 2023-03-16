@@ -4,6 +4,10 @@
  */
 package com.tecmic.B05.tecnicalOfficer;
 
+import com.tecmis.B05.course.Course;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author ganidusahan
@@ -82,5 +86,12 @@ public class Attendance {
         this.student_id = student_id;
     }
     
-    
+    public List<Attendance> list(){
+        List<Attendance> list = new ArrayList<Attendance>();
+        try{
+            
+        }catch(Exception e){
+            
+        }
+    }
 }
