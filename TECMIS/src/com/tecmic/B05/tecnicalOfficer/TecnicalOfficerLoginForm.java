@@ -225,7 +225,7 @@ public class TecnicalOfficerLoginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         new TechmisView().setVisible(true);
-        Dispose();
+        //Dispose();
 
     }//GEN-LAST:event_jLabel8MouseClicked
 

@@ -29,6 +29,11 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -42,7 +47,25 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
 
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+
         jLabel1.setText("Home");
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("/Users/ganidusahan/Desktop/Java - mini/Java_Project/Images/technician/tec.png")); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("TECHNICAL OFFICER");
+
+        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("DASHBOARD");
+
+        jLabel9.setIcon(new javax.swing.ImageIcon("/Users/ganidusahan/Desktop/Java - mini/Java_Project/Images/technician/notice.gif")); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("NOTICE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -51,17 +74,51 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(225, 225, 225)
                 .addComponent(jLabel1)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addContainerGap(819, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(170, 170, 170)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addGap(88, 88, 88)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel8))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel10)))
+                    .addContainerGap(170, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel1)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(462, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel9)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addComponent(jLabel10)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addGap(0, 0, 0)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(172, 172, 172)))
+                    .addGap(23, 23, 23)))
         );
 
-        jTabbedPane1.addTab("Home", jPanel1);
+        jTabbedPane1.addTab("Home", new javax.swing.ImageIcon(getClass().getResource("/com/tecmic/B05/tecnicalOfficer/TecnicalOfficer_Picture/icons8-home-page-100.png")), jPanel1); // NOI18N
 
         jLabel2.setText("Profile");
 
@@ -72,17 +129,17 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(225, 225, 225)
                 .addComponent(jLabel2)
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addContainerGap(817, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel2)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Profile", jPanel2);
+        jTabbedPane1.addTab("Profile", new javax.swing.ImageIcon(getClass().getResource("/com/tecmic/B05/tecnicalOfficer/TecnicalOfficer_Picture/icons8-admin-settings-male-100.png")), jPanel2); // NOI18N
 
         jLabel3.setText("TimeTables");
 
@@ -93,17 +150,17 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(225, 225, 225)
                 .addComponent(jLabel3)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(786, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel3)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("TimeTables", jPanel3);
+        jTabbedPane1.addTab("TimeTables", new javax.swing.ImageIcon(getClass().getResource("/com/tecmic/B05/tecnicalOfficer/TecnicalOfficer_Picture/icons8-timetable-100.png")), jPanel3); // NOI18N
 
         jLabel4.setText("Attendance");
 
@@ -114,17 +171,17 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(225, 225, 225)
                 .addComponent(jLabel4)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(787, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel4)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Attendance", jPanel4);
+        jTabbedPane1.addTab("Attendance", new javax.swing.ImageIcon(getClass().getResource("/com/tecmic/B05/tecnicalOfficer/TecnicalOfficer_Picture/attend.png")), jPanel4); // NOI18N
 
         jLabel5.setText("Medical");
 
@@ -135,23 +192,23 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(225, 225, 225)
                 .addComponent(jLabel5)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addContainerGap(807, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel5)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Medical", jPanel5);
+        jTabbedPane1.addTab("Medical", new javax.swing.ImageIcon(getClass().getResource("/com/tecmic/B05/tecnicalOfficer/TecnicalOfficer_Picture/icons8-doctors-folder-100.png")), jPanel5); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,10 +256,15 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
