@@ -12,4 +12,9 @@ import com.tecmic.B05.user.User;
  */
 public class TecnicalOfficer extends User {
     
+    public void InsertAttendance(){
+        
+    }
+    
+    
 }
