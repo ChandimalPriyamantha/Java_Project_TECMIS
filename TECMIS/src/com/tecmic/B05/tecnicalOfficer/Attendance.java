@@ -4,9 +4,14 @@
  */
 package com.tecmic.B05.tecnicalOfficer;
 
+import com.tecmic.B05.TecmisDB.TecmisDB;
 import com.tecmis.B05.course.Course;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -85,13 +90,5 @@ public class Attendance {
     public void setStudent_id(String student_id) {
         this.student_id = student_id;
     }
-    
-    public List<Attendance> list(){
-        List<Attendance> list = new ArrayList<Attendance>();
-        try{
-            
-        }catch(Exception e){
-            
-        }
-    }
+
 }
