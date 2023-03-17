@@ -4,6 +4,10 @@
  */
 package com.tecmic.B05.tecnicalOfficer;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ganidusahan
@@ -15,8 +19,29 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
      */
     public TecnicalOfficerForm() {
         initComponents();
+        Load();
     }
 
+    
+    public void Load(){
+        AttendanceDAOImp dao = new AttendanceDAOImp();
+        List<Attendance> list = dao.list();
+        DefaultTableModel DFT =  (DefaultTableModel) attendencetbl.getModel();
+        DFT.setRowCount(0);
+        for(Attendance atnd:list){
+            int id = atnd.getAttendence_id();
+            String type = atnd.getType();
+            String state = atnd.getState();
+            String date = atnd.getDate();
+            String cid = atnd.getCourse_id();
+            String lid = atnd.getLecturer_id();
+            int hour = atnd.getHour();
+            String stid = atnd.getStudent_id();
+            
+            DFT.addRow(new Object[]{id,type,state,date,cid,lid,hour,stid});
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,20 +104,20 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
+        txttype = new javax.swing.JTextField();
+        txtstate = new javax.swing.JTextField();
+        txtcid = new javax.swing.JTextField();
+        txtlid = new javax.swing.JTextField();
+        txtdate = new javax.swing.JTextField();
+        txtstid = new javax.swing.JTextField();
+        txthour = new javax.swing.JTextField();
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        attendencetbl = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
@@ -461,10 +486,25 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         });
 
         jButton18.setText("Update");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
 
         jButton19.setText("Delete");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
 
         jButton20.setText("Search");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -484,13 +524,13 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
                             .addComponent(jLabel24))
                         .addGap(39, 39, 39)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField8)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField10)
-                            .addComponent(jTextField11)
-                            .addComponent(jTextField12)
-                            .addComponent(jTextField13)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txttype)
+                            .addComponent(txtstate)
+                            .addComponent(txtcid)
+                            .addComponent(txtlid)
+                            .addComponent(txtdate)
+                            .addComponent(txtstid)
+                            .addComponent(txthour, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jButton17)
@@ -514,37 +554,37 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txttype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtstate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtlid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txthour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtstid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31))
         );
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        attendencetbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -563,7 +603,7 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(attendencetbl);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -793,10 +833,116 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
-
+    int search;
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // TODO add your handling code here:
+        
+        Attendance atnd = new Attendance();
+        
+        String type = txttype.getText();
+        String state = txtstate.getText();
+        String date = txtdate.getText();
+        String cid = txtcid.getText();
+        String lid = txtlid.getText();
+        int hour = Integer.parseInt(txthour.getText());
+        String stid = txtstid.getText();
+        
+        atnd.setType(type);
+        atnd.setState(state);
+        atnd.setDate(date);
+        atnd.setCourse_id(cid);
+        atnd.setLecturer_id(lid);
+        atnd.setHour(hour);
+        atnd.setStudent_id(stid);
+        
+        AttendanceDAOImp dao = new AttendanceDAOImp();
+        dao.save(atnd);
+        
+        Load();
+        
+        txttype.setText("");
+        txtstate.setText("");
+        txtdate.setText("");
+        txtcid.setText("");
+        txtlid.setText("");
+        txthour.setText("");
+        txtstid.setText("");
+        
+        txttype.requestFocus();
+        
     }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        Attendance atnd = new Attendance();
+        
+        String type = txttype.getText();
+        String state = txtstate.getText();
+        String date = txtdate.getText();
+        String cid = txtcid.getText();
+        String lid = txtlid.getText();
+        int hour = Integer.parseInt(txthour.getText());
+        String stid = txtstid.getText();
+        
+        atnd.setType(type);
+        atnd.setState(state);
+        atnd.setDate(date);
+        atnd.setCourse_id(cid);
+        atnd.setLecturer_id(lid);
+        atnd.setHour(hour);
+        atnd.setStudent_id(stid);
+        
+        AttendanceDAOImp dao = new AttendanceDAOImp();
+        dao.update(atnd);
+        
+        Load();
+        
+        txttype.setText("");
+        txtstate.setText("");
+        txtdate.setText("");
+        txtcid.setText("");
+        txtlid.setText("");
+        txthour.setText("");
+        txtstid.setText("");
+        
+        txttype.requestFocus();
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        
+        Attendance atnd = new Attendance();
+        atnd.setAttendence_id(search);
+        AttendanceDAOImp dao = new AttendanceDAOImp();
+        dao.delete(atnd);
+        
+        Load();
+            
+        txttype.setText("");
+        txtstate.setText("");
+        txtdate.setText("");
+        txtcid.setText("");
+        txtlid.setText("");
+        txthour.setText("");
+        txtstid.setText("");
+        
+        txttype.requestFocus();
+        
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        search = Integer.parseInt(JOptionPane.showInputDialog("Enter Student ID"));
+        
+        AttendanceDAOImp dao = new AttendanceDAOImp();
+        Attendance atnd = dao.get(search);
+        
+        //txtsname.setText(st.getFname());
+        txttype.setText(atnd.getType());
+        txtstate.setText(atnd.getState());
+        txtdate.setText(atnd.getDate());
+        txtcid.setText(atnd.getCourse_id());
+        txtlid.setText(atnd.getLecturer_id());
+        txthour.setText(String.valueOf(atnd.getHour()));
+        txtstid.setText(atnd.getStudent_id());
+      
+    }//GEN-LAST:event_jButton20ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -834,6 +980,7 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable attendencetbl;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -900,14 +1047,8 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
@@ -920,7 +1061,12 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField txtcid;
+    private javax.swing.JTextField txtdate;
+    private javax.swing.JTextField txthour;
+    private javax.swing.JTextField txtlid;
+    private javax.swing.JTextField txtstate;
+    private javax.swing.JTextField txtstid;
+    private javax.swing.JTextField txttype;
     // End of variables declaration//GEN-END:variables
 }
