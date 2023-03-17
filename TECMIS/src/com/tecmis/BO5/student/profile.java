@@ -4,18 +4,49 @@
  */
 package com.tecmis.BO5.student;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ACER
  */
 public class profile extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form profile
-     */
+   String id;
+   
     public profile() {
         initComponents();
     }
+    
+    
+    public void profileUpdate(Student students)
+    {
+        try
+        {
+        Connection con=StudentDBCon.Connect();
+        String sql="UPDATE student SET address=? ,phone_no=? ,email=? WHERE id='"+id+"'";
+        PreparedStatement ps=con.prepareStatement(sql);
+        ps.setString(1,students.getAddress());
+        ps.setString(2,students.getPhoneNumner());
+        ps.setString(3,students.getEmail());
+        ps.executeUpdate();
+        
+        JOptionPane.showMessageDialog(null,"Updated!");
+    }
+    catch(Exception e)
+    {
+        System.out.println(e);
+    }
+    }
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,6 +72,7 @@ public class profile extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(0, 153, 153));
         setBorder(null);
+        setTitle("PROFILE");
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,7 +171,7 @@ public class profile extends javax.swing.JInternalFrame {
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +192,7 @@ public class profile extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(save)
                 .addGap(28, 28, 28))
         );
@@ -176,8 +208,8 @@ public class profile extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -193,6 +225,9 @@ public class profile extends javax.swing.JInternalFrame {
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
                  // TODO add your handling code here:
+                 Student students=new Student();
+                 //profileUpdate(Student students);
+                 
     }//GEN-LAST:event_saveActionPerformed
 
 
