@@ -90,7 +90,7 @@ public class AttendanceDAOImp implements AttendanceDAO{
 
     @Override
     public Attendance get(int attendence_id) {
-        Attendance st = new Attendance();
+        Attendance atnd = new Attendance();
         try{
            Connection con = TecmisDB.getConnection();
            String sql = "SELECT * FROM attendance WHERE attendence_id=?";
@@ -98,14 +98,14 @@ public class AttendanceDAOImp implements AttendanceDAO{
            ps.setInt(1,attendence_id);
            ResultSet rs = ps.executeQuery();
            if(rs.next()){
-               st.setAttendence_id(rs.getInt("attendence_id"));
-               st.setType(rs.getString("type"));
-               st.setState(rs.getString("state"));
-               st.setDate(rs.getString("date"));
-               st.setCourse_id(rs.getString("course_id"));
-               st.setLecturer_id(rs.getString("lecturer_id"));
-               st.setHour(rs.getInt("hour"));
-               st.setStudent_id(rs.getString("student_id"));
+               atnd.setAttendence_id(rs.getInt("attendence_id"));
+               atnd.setType(rs.getString("type"));
+               atnd.setState(rs.getString("state"));
+               atnd.setDate(rs.getString("date"));
+               atnd.setCourse_id(rs.getString("course_id"));
+               atnd.setLecturer_id(rs.getString("lecturer_id"));
+               atnd.setHour(rs.getInt("hour"));
+               atnd.setStudent_id(rs.getString("student_id"));
                
            }
            
@@ -113,7 +113,7 @@ public class AttendanceDAOImp implements AttendanceDAO{
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERROR");
         }
-        return st;
+        return atnd;
     }
 
     @Override
@@ -127,17 +127,17 @@ public class AttendanceDAOImp implements AttendanceDAO{
            ResultSet rs = ps.executeQuery();
            
            while(rs.next()){
-               Attendance st = new Attendance();
-               st.setAttendence_id(rs.getInt("attendence_id"));
-               st.setType(rs.getString("type"));
-               st.setState(rs.getString("state"));
-               st.setDate(rs.getString("date"));
-               st.setCourse_id(rs.getString("course_id"));
-               st.setLecturer_id(rs.getString("lecturer_id"));
-               st.setHour(rs.getInt("hour"));
-               st.setStudent_id(rs.getString("student_id"));
+               Attendance atnd = new Attendance();
+               atnd.setAttendence_id(rs.getInt("attendence_id"));
+               atnd.setType(rs.getString("type"));
+               atnd.setState(rs.getString("state"));
+               atnd.setDate(rs.getString("date"));
+               atnd.setCourse_id(rs.getString("course_id"));
+               atnd.setLecturer_id(rs.getString("lecturer_id"));
+               atnd.setHour(rs.getInt("hour"));
+               atnd.setStudent_id(rs.getString("student_id"));
                
-               list.add(st);
+               list.add(atnd);
            }
            
        }catch(Exception e){

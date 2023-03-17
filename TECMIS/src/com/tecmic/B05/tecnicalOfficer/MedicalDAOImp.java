@@ -49,7 +49,7 @@ public class MedicalDAOImp implements MedicalDAO{
         try{
             
            Connection con = TecmisDB.getConnection();
-           String sql = "UPDATE attendance SET type=?,state=?,date=?,course_id=?,lecturer_id=?,hour=?,student_id=? WHERE attendence_id=?";
+           String sql = "UPDATE medical SET date=?,state=?,description=?,department_id=?,subject_code=?,student_id=? WHERE medical_id=?";
            PreparedStatement ps = con.prepareStatement(sql);
            ps.setString(1,medical.getDate());
            ps.setString(2,medical.getState());
@@ -73,9 +73,9 @@ public class MedicalDAOImp implements MedicalDAO{
     public void delete(Medical medical) {
         try{
            Connection con = TecmisDB.getConnection();
-           String sql = "DELETE FROM attendance WHERE attendence_id=?";
+           String sql = "DELETE FROM medical WHERE medical_id=?";
            PreparedStatement ps = con.prepareStatement(sql);
-           ps.setInt(1, attendance.getAttendence_id());
+           ps.setInt(1, medical.getMedical_id());
            ps.executeUpdate();
            JOptionPane.showMessageDialog(null, "DELETED!");
            
@@ -91,22 +91,21 @@ public class MedicalDAOImp implements MedicalDAO{
 
     @Override
     public Medical get(int medical_id) {
-        Attendance st = new Attendance();
+        Medical med = new Medical();
         try{
            Connection con = TecmisDB.getConnection();
-           String sql = "SELECT * FROM attendance WHERE attendence_id=?";
+           String sql = "SELECT * FROM medical WHERE medical_id=?";
            PreparedStatement ps = con.prepareStatement(sql);
-           ps.setInt(1,attendence_id);
+           ps.setInt(1,medical_id);
            ResultSet rs = ps.executeQuery();
            if(rs.next()){
-               st.setAttendence_id(rs.getInt("attendence_id"));
-               st.setType(rs.getString("type"));
-               st.setState(rs.getString("state"));
-               st.setDate(rs.getString("date"));
-               st.setCourse_id(rs.getString("course_id"));
-               st.setLecturer_id(rs.getString("lecturer_id"));
-               st.setHour(rs.getInt("hour"));
-               st.setStudent_id(rs.getString("student_id"));
+               med.setMedical_id(rs.getInt("medical_id"));
+               med.setDate(rs.getString("date"));
+               med.setState(rs.getString("state"));
+               med.setDescription(rs.getString("description"));
+               med.setDepartment_id(rs.getString("department_id"));
+               med.setSubject_code(rs.getString("subject_code"));
+               med.setStudent_id(rs.getString("student_id"));
                
            }
            
@@ -114,7 +113,7 @@ public class MedicalDAOImp implements MedicalDAO{
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERROR");
         }
-        return st;
+        return med;
         
         
     }
@@ -122,26 +121,25 @@ public class MedicalDAOImp implements MedicalDAO{
     @Override
     public List<Medical> list() {
         
-        List<Attendance> list = new ArrayList<Attendance>();
+        List<Medical> list = new ArrayList<Medical>();
         try{
            
            Connection con = TecmisDB.getConnection();
-           String sql = "SELECT * FROM attendance";
+           String sql = "SELECT * FROM medical";
            PreparedStatement ps = con.prepareStatement(sql);
            ResultSet rs = ps.executeQuery();
            
            while(rs.next()){
-               Attendance st = new Attendance();
-               st.setAttendence_id(rs.getInt("attendence_id"));
-               st.setType(rs.getString("type"));
-               st.setState(rs.getString("state"));
-               st.setDate(rs.getString("date"));
-               st.setCourse_id(rs.getString("course_id"));
-               st.setLecturer_id(rs.getString("lecturer_id"));
-               st.setHour(rs.getInt("hour"));
-               st.setStudent_id(rs.getString("student_id"));
+               Medical med = new Medical();
+               med.setMedical_id(rs.getInt("medical_id"));
+               med.setDate(rs.getString("date"));
+               med.setState(rs.getString("state"));
+               med.setDescription(rs.getString("description"));
+               med.setDepartment_id(rs.getString("department_id"));
+               med.setSubject_code(rs.getString("subject_code"));
+               med.setStudent_id(rs.getString("student_id"));
                
-               list.add(st);
+               list.add(med);
            }
            
        }catch(Exception e){

@@ -126,12 +126,12 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
+        txtdatem = new javax.swing.JTextField();
+        txtstatem = new javax.swing.JTextField();
+        txtdescm = new javax.swing.JTextField();
+        txtdidm = new javax.swing.JTextField();
+        txtsubcodem = new javax.swing.JTextField();
+        txtstidm = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
@@ -674,10 +674,25 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         });
 
         jButton14.setText("Update");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         jButton15.setText("Delete");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         jButton16.setText("Search");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -696,12 +711,12 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
                             .addComponent(jLabel40))
                         .addGap(39, 39, 39)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField15)
-                            .addComponent(jTextField16)
-                            .addComponent(jTextField18)
-                            .addComponent(jTextField19)
-                            .addComponent(jTextField17)
-                            .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtdatem)
+                            .addComponent(txtstatem)
+                            .addComponent(txtdidm)
+                            .addComponent(txtsubcodem)
+                            .addComponent(txtdescm)
+                            .addComponent(txtstidm, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton13)
@@ -725,27 +740,27 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdatem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel41)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtstatem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel40)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdescm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdidm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtsubcodem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtstidm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34))
         );
 
@@ -831,7 +846,37 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
+        
+        Medical med = new Medical();
+        
+        String date = txtdatem.getText();
+        String state = txtstatem.getText();
+        String desc = txtdescm.getText();
+        String did = txtdidm.getText();
+        String subcode = txtsubcodem.getText();
+        String stid = txtstidm.getText();
+        
+        med.setDate(date);
+        med.setState(state);
+        med.setDescription(desc);
+        med.setDepartment_id(did);
+        med.setSubject_code(subcode);
+        med.setStudent_id(stid);
+        
+        MedicalDAOImp dao = new MedicalDAOImp();
+        dao.save(med);
+        
+        //Load();
+        
+        txtdatem.setText("");
+        txtstatem.setText("");
+        txtdescm.setText("");
+        txtdidm.setText("");
+        txtsubcodem.setText("");
+        txtstidm.setText("");
+        
+        txtdatem.requestFocus();
+        
     }//GEN-LAST:event_jButton13ActionPerformed
     int search;
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -944,6 +989,74 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
       
     }//GEN-LAST:event_jButton20ActionPerformed
 
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        Medical med = new Medical();
+        
+        String date = txtdatem.getText();
+        String state = txtstatem.getText();
+        String desc = txtdescm.getText();
+        String did = txtdidm.getText();
+        String subcode = txtsubcodem.getText();
+        String stid = txtstidm.getText();
+        
+        med.setDate(date);
+        med.setState(state);
+        med.setDescription(desc);
+        med.setDepartment_id(did);
+        med.setSubject_code(subcode);
+        med.setStudent_id(stid);
+        
+        MedicalDAOImp dao = new MedicalDAOImp();
+        dao.update(med);
+        
+        //Load();
+        
+        
+        txtdatem.setText("");
+        txtstatem.setText("");
+        txtdescm.setText("");
+        txtdidm.setText("");
+        txtsubcodem.setText("");
+        txtstidm.setText("");
+        
+        txtdatem.requestFocus();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        
+        Medical med = new Medical();
+        med.setMedical_id(search);
+        MedicalDAOImp dao = new MedicalDAOImp();
+        dao.delete(med);
+        
+        Load();
+            
+        txtdatem.setText("");
+        txtstatem.setText("");
+        txtdescm.setText("");
+        txtdidm.setText("");
+        txtsubcodem.setText("");
+        txtstidm.setText("");
+        
+        txtdatem.requestFocus();
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        search = Integer.parseInt(JOptionPane.showInputDialog("Enter Student ID"));
+        
+        MedicalDAOImp dao = new MedicalDAOImp();
+        Medical med = dao.get(search);
+        
+
+        
+        txtdatem.setText(med.getDate());
+        txtstatem.setText(med.getState());
+        txtdescm.setText(med.getDescription());
+        txtdidm.setText(med.getDepartment_id());
+        txtsubcodem.setText(med.getSubject_code());
+        txtstidm.setText(med.getDate());
+    }//GEN-LAST:event_jButton16ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1049,13 +1162,7 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -1063,10 +1170,16 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField txtcid;
     private javax.swing.JTextField txtdate;
+    private javax.swing.JTextField txtdatem;
+    private javax.swing.JTextField txtdescm;
+    private javax.swing.JTextField txtdidm;
     private javax.swing.JTextField txthour;
     private javax.swing.JTextField txtlid;
     private javax.swing.JTextField txtstate;
+    private javax.swing.JTextField txtstatem;
     private javax.swing.JTextField txtstid;
+    private javax.swing.JTextField txtstidm;
+    private javax.swing.JTextField txtsubcodem;
     private javax.swing.JTextField txttype;
     // End of variables declaration//GEN-END:variables
 }
