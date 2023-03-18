@@ -28,6 +28,10 @@ public class TecnicalOfficerLoginImp extends TecnicalOfficerLogin{
             
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "You have successfully logged in");
+                
+                Auth auth = Auth.getInstance();
+                auth.setUsername(tecnicalOfficer.getUserName());
+                
                 new TecnicalOfficerForm().setVisible(true);
             }
             else{

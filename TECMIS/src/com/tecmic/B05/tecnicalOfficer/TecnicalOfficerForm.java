@@ -5,6 +5,7 @@
 package com.tecmic.B05.tecnicalOfficer;
 
 import com.tecmic.B05.user.User;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,8 +30,8 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
     public TecnicalOfficerForm() {
         initComponents();
         Load();
+        UserLoad("technical_officer");
     }
-
     
     public void Load(){
         AttendanceDAOImp dao = new AttendanceDAOImp();
@@ -51,11 +53,16 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         
     }
     
-    public void UserLoad(int key1, String key2){
+    public void UserLoad(String key){
         
         User user = new User();
         //List<User> list = user.list("technical_officer");
-        user.get(null, key2);
+        
+        Auth auth = Auth.getInstance();
+        String usr = auth.getUsername();
+        
+        user.get(usr, key);
+        
         //image_lbl.setIcon(null);
         //image_lbl.setText("Set Profile Pic");
         txtid.setText(user.getUserID());
@@ -128,23 +135,6 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         txtimagepath = new javax.swing.JLabel();
         txtid = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -249,7 +239,7 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
                         .addComponent(jLabel5)))
                 .addGap(142, 142, 142)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -392,6 +382,11 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         image_lbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnaddimg.setText("Add Image");
+        btnaddimg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddimgActionPerformed(evt);
+            }
+        });
 
         txtimagepath.setForeground(new java.awt.Color(255, 255, 255));
         txtimagepath.setText("jLabel30");
@@ -462,137 +457,6 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("PROFILE", new javax.swing.ImageIcon("/Users/ganidusahan/Desktop/ganidume/Java_Project/Images/TecnicalOfficer_Picture/icons8-admin-settings-male-100.png"), jPanel2); // NOI18N
-
-        jLabel16.setText("TIME TABLES");
-
-        jLabel17.setText("Department of ET");
-
-        jLabel18.setText("Department of BST");
-
-        jLabel19.setText("Department of ICT");
-
-        jButton1.setText("LEVEL 01");
-
-        jButton2.setText("LEVEL 03");
-
-        jButton3.setText("LEVEL 02");
-
-        jButton4.setText("LEVEL 04");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setText("LEVEL 01");
-
-        jButton6.setText("LEVEL 02");
-
-        jButton7.setText("LEVEL 03");
-
-        jButton8.setText("LEVEL 04");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        jButton9.setText("LEVEL 01");
-
-        jButton10.setText("LEVEL 02");
-
-        jButton11.setText("LEVEL 03");
-
-        jButton12.setText("LEVEL 04");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(283, 283, 283)
-                        .addComponent(jLabel16))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(74, 74, 74))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addComponent(jButton4)
-                                    .addComponent(jButton3)
-                                    .addComponent(jButton2))
-                                .addGap(94, 94, 94)))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5)
-                            .addComponent(jButton8)
-                            .addComponent(jButton6)
-                            .addComponent(jButton7)
-                            .addComponent(jLabel17))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(143, 143, 143)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton9)
-                                    .addComponent(jButton10)
-                                    .addComponent(jButton11)
-                                    .addComponent(jButton12)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(130, 130, 130)
-                                .addComponent(jLabel18)))))
-                .addContainerGap(962, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jLabel16)
-                .addGap(39, 39, 39)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel18))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton5)
-                            .addComponent(jButton9))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3)
-                            .addComponent(jButton6)
-                            .addComponent(jButton10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(50, 50, 50)
-                        .addComponent(jButton4))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton7)
-                            .addComponent(jButton11))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jButton8))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(jButton12)))))
-                .addGap(115, 115, 115))
-        );
-
-        jTabbedPane1.addTab("TIMETABLE", new javax.swing.ImageIcon("/Users/ganidusahan/Desktop/ganidume/Java_Project/Images/TecnicalOfficer_Picture/icons8-timetable-100.png"), jPanel3); // NOI18N
 
         jLabel20.setText("ATTENDENCE");
 
@@ -900,17 +764,6 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 541, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 365, Short.MAX_VALUE)
-        );
-
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -924,6 +777,23 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -931,24 +801,18 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(35, 35, 35)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addContainerGap(656, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(162, Short.MAX_VALUE)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("MEDICAL", new javax.swing.ImageIcon("/Users/ganidusahan/Desktop/ganidume/Java_Project/Images/TecnicalOfficer_Picture/icons8-doctors-folder-100.png"), jPanel5); // NOI18N
@@ -967,222 +831,12 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        
-        Medical med = new Medical();
-        
-        String date = txtdatem.getText();
-        String state = txtstatem.getText();
-        String desc = txtdescm.getText();
-        String did = txtdidm.getText();
-        String subcode = txtsubcodem.getText();
-        String stid = txtstidm.getText();
-        
-        med.setDate(date);
-        med.setState(state);
-        med.setDescription(desc);
-        med.setDepartment_id(did);
-        med.setSubject_code(subcode);
-        med.setStudent_id(stid);
-        
-        MedicalDAOImp dao = new MedicalDAOImp();
-        dao.save(med);
-        
-        //Load();
-        
-        txtdatem.setText("");
-        txtstatem.setText("");
-        txtdescm.setText("");
-        txtdidm.setText("");
-        txtsubcodem.setText("");
-        txtstidm.setText("");
-        
-        txtdatem.requestFocus();
-        
-    }//GEN-LAST:event_jButton13ActionPerformed
-    int search;
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        
-        Attendance atnd = new Attendance();
-        
-        String type = txttype.getText();
-        String state = txtstate.getText();
-        String date = txtdate.getText();
-        String cid = txtcid.getText();
-        String lid = txtlid.getText();
-        int hour = Integer.parseInt(txthour.getText());
-        String stid = txtstid.getText();
-        
-        atnd.setType(type);
-        atnd.setState(state);
-        atnd.setDate(date);
-        atnd.setCourse_id(cid);
-        atnd.setLecturer_id(lid);
-        atnd.setHour(hour);
-        atnd.setStudent_id(stid);
-        
-        AttendanceDAOImp dao = new AttendanceDAOImp();
-        dao.save(atnd);
-        
-        Load();
-        
-        txttype.setText("");
-        txtstate.setText("");
-        txtdate.setText("");
-        txtcid.setText("");
-        txtlid.setText("");
-        txthour.setText("");
-        txtstid.setText("");
-        
-        txttype.requestFocus();
-        
-    }//GEN-LAST:event_jButton17ActionPerformed
-
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        Attendance atnd = new Attendance();
-        
-        String type = txttype.getText();
-        String state = txtstate.getText();
-        String date = txtdate.getText();
-        String cid = txtcid.getText();
-        String lid = txtlid.getText();
-        int hour = Integer.parseInt(txthour.getText());
-        String stid = txtstid.getText();
-        
-        atnd.setType(type);
-        atnd.setState(state);
-        atnd.setDate(date);
-        atnd.setCourse_id(cid);
-        atnd.setLecturer_id(lid);
-        atnd.setHour(hour);
-        atnd.setStudent_id(stid);
-        
-        AttendanceDAOImp dao = new AttendanceDAOImp();
-        dao.update(atnd);
-        
-        Load();
-        
-        txttype.setText("");
-        txtstate.setText("");
-        txtdate.setText("");
-        txtcid.setText("");
-        txtlid.setText("");
-        txthour.setText("");
-        txtstid.setText("");
-        
-        txttype.requestFocus();
-    }//GEN-LAST:event_jButton18ActionPerformed
-
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        
-        Attendance atnd = new Attendance();
-        atnd.setAttendence_id(search);
-        AttendanceDAOImp dao = new AttendanceDAOImp();
-        dao.delete(atnd);
-        
-        Load();
-            
-        txttype.setText("");
-        txtstate.setText("");
-        txtdate.setText("");
-        txtcid.setText("");
-        txtlid.setText("");
-        txthour.setText("");
-        txtstid.setText("");
-        
-        txttype.requestFocus();
-        
-    }//GEN-LAST:event_jButton19ActionPerformed
-
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        search = Integer.parseInt(JOptionPane.showInputDialog("Enter Student ID"));
-        
-        AttendanceDAOImp dao = new AttendanceDAOImp();
-        Attendance atnd = dao.get(search);
-        
-        //txtsname.setText(st.getFname());
-        txttype.setText(atnd.getType());
-        txtstate.setText(atnd.getState());
-        txtdate.setText(atnd.getDate());
-        txtcid.setText(atnd.getCourse_id());
-        txtlid.setText(atnd.getLecturer_id());
-        txthour.setText(String.valueOf(atnd.getHour()));
-        txtstid.setText(atnd.getStudent_id());
-      
-    }//GEN-LAST:event_jButton20ActionPerformed
-
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        Medical med = new Medical();
-        
-        String date = txtdatem.getText();
-        String state = txtstatem.getText();
-        String desc = txtdescm.getText();
-        String did = txtdidm.getText();
-        String subcode = txtsubcodem.getText();
-        String stid = txtstidm.getText();
-        
-        med.setDate(date);
-        med.setState(state);
-        med.setDescription(desc);
-        med.setDepartment_id(did);
-        med.setSubject_code(subcode);
-        med.setStudent_id(stid);
-        
-        MedicalDAOImp dao = new MedicalDAOImp();
-        dao.update(med);
-        
-        //Load();
-        
-        
-        txtdatem.setText("");
-        txtstatem.setText("");
-        txtdescm.setText("");
-        txtdidm.setText("");
-        txtsubcodem.setText("");
-        txtstidm.setText("");
-        
-        txtdatem.requestFocus();
-    }//GEN-LAST:event_jButton14ActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        
-        Medical med = new Medical();
-        med.setMedical_id(search);
-        MedicalDAOImp dao = new MedicalDAOImp();
-        dao.delete(med);
-        
-        Load();
-            
-        txtdatem.setText("");
-        txtstatem.setText("");
-        txtdescm.setText("");
-        txtdidm.setText("");
-        txtsubcodem.setText("");
-        txtstidm.setText("");
-        
-        txtdatem.requestFocus();
-    }//GEN-LAST:event_jButton15ActionPerformed
-
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         search = Integer.parseInt(JOptionPane.showInputDialog("Enter Student ID"));
-        
+
         MedicalDAOImp dao = new MedicalDAOImp();
         Medical med = dao.get(search);
-        
 
-        
         txtdatem.setText(med.getDate());
         txtstatem.setText(med.getState());
         txtdescm.setText(med.getDescription());
@@ -1191,15 +845,224 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         txtstidm.setText(med.getDate());
     }//GEN-LAST:event_jButton16ActionPerformed
 
-    private void txtbirthdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbirthdateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtbirthdateActionPerformed
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+
+        Medical med = new Medical();
+        med.setMedical_id(search);
+        MedicalDAOImp dao = new MedicalDAOImp();
+        dao.delete(med);
+
+        Load();
+
+        txtdatem.setText("");
+        txtstatem.setText("");
+        txtdescm.setText("");
+        txtdidm.setText("");
+        txtsubcodem.setText("");
+        txtstidm.setText("");
+
+        txtdatem.requestFocus();
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        Medical med = new Medical();
+
+        String date = txtdatem.getText();
+        String state = txtstatem.getText();
+        String desc = txtdescm.getText();
+        String did = txtdidm.getText();
+        String subcode = txtsubcodem.getText();
+        String stid = txtstidm.getText();
+
+        med.setDate(date);
+        med.setState(state);
+        med.setDescription(desc);
+        med.setDepartment_id(did);
+        med.setSubject_code(subcode);
+        med.setStudent_id(stid);
+
+        MedicalDAOImp dao = new MedicalDAOImp();
+        dao.update(med);
+
+        //Load();
+
+        txtdatem.setText("");
+        txtstatem.setText("");
+        txtdescm.setText("");
+        txtdidm.setText("");
+        txtsubcodem.setText("");
+        txtstidm.setText("");
+
+        txtdatem.requestFocus();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+
+        Medical med = new Medical();
+
+        String date = txtdatem.getText();
+        String state = txtstatem.getText();
+        String desc = txtdescm.getText();
+        String did = txtdidm.getText();
+        String subcode = txtsubcodem.getText();
+        String stid = txtstidm.getText();
+
+        med.setDate(date);
+        med.setState(state);
+        med.setDescription(desc);
+        med.setDepartment_id(did);
+        med.setSubject_code(subcode);
+        med.setStudent_id(stid);
+
+        MedicalDAOImp dao = new MedicalDAOImp();
+        dao.save(med);
+
+        //Load();
+
+        txtdatem.setText("");
+        txtstatem.setText("");
+        txtdescm.setText("");
+        txtdidm.setText("");
+        txtsubcodem.setText("");
+        txtstidm.setText("");
+
+        txtdatem.requestFocus();
+
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        search = Integer.parseInt(JOptionPane.showInputDialog("Enter Student ID"));
+
+        AttendanceDAOImp dao = new AttendanceDAOImp();
+        Attendance atnd = dao.get(search);
+
+        //txtsname.setText(st.getFname());
+        txttype.setText(atnd.getType());
+        txtstate.setText(atnd.getState());
+        txtdate.setText(atnd.getDate());
+        txtcid.setText(atnd.getCourse_id());
+        txtlid.setText(atnd.getLecturer_id());
+        txthour.setText(String.valueOf(atnd.getHour()));
+        txtstid.setText(atnd.getStudent_id());
+
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+
+        Attendance atnd = new Attendance();
+        atnd.setAttendence_id(search);
+        AttendanceDAOImp dao = new AttendanceDAOImp();
+        dao.delete(atnd);
+
+        Load();
+
+        txttype.setText("");
+        txtstate.setText("");
+        txtdate.setText("");
+        txtcid.setText("");
+        txtlid.setText("");
+        txthour.setText("");
+        txtstid.setText("");
+
+        txttype.requestFocus();
+
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        Attendance atnd = new Attendance();
+
+        String type = txttype.getText();
+        String state = txtstate.getText();
+        String date = txtdate.getText();
+        String cid = txtcid.getText();
+        String lid = txtlid.getText();
+        int hour = Integer.parseInt(txthour.getText());
+        String stid = txtstid.getText();
+
+        atnd.setType(type);
+        atnd.setState(state);
+        atnd.setDate(date);
+        atnd.setCourse_id(cid);
+        atnd.setLecturer_id(lid);
+        atnd.setHour(hour);
+        atnd.setStudent_id(stid);
+
+        AttendanceDAOImp dao = new AttendanceDAOImp();
+        dao.update(atnd);
+
+        Load();
+
+        txttype.setText("");
+        txtstate.setText("");
+        txtdate.setText("");
+        txtcid.setText("");
+        txtlid.setText("");
+        txthour.setText("");
+        txtstid.setText("");
+
+        txttype.requestFocus();
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+
+        Attendance atnd = new Attendance();
+
+        String type = txttype.getText();
+        String state = txtstate.getText();
+        String date = txtdate.getText();
+        String cid = txtcid.getText();
+        String lid = txtlid.getText();
+        int hour = Integer.parseInt(txthour.getText());
+        String stid = txtstid.getText();
+
+        atnd.setType(type);
+        atnd.setState(state);
+        atnd.setDate(date);
+        atnd.setCourse_id(cid);
+        atnd.setLecturer_id(lid);
+        atnd.setHour(hour);
+        atnd.setStudent_id(stid);
+
+        AttendanceDAOImp dao = new AttendanceDAOImp();
+        dao.save(atnd);
+
+        Load();
+
+        txttype.setText("");
+        txtstate.setText("");
+        txtdate.setText("");
+        txtcid.setText("");
+        txtlid.setText("");
+        txthour.setText("");
+        txtstid.setText("");
+
+        txttype.requestFocus();
+
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void btnaddimgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddimgActionPerformed
+        JFileChooser chooser = new JFileChooser();
+
+        chooser.showOpenDialog(null);
+        String file = chooser.getSelectedFile().getPath();
+
+        txtimagepath.setText(file);
+
+        File image = chooser.getSelectedFile();
+        String filename = image.getAbsolutePath();
+
+        image_lbl.setText(filename);
+        System.out.println(image_lbl);
+        ImageIcon icon = new ImageIcon(filename);
+        Image i = icon.getImage().getScaledInstance(image_lbl.getWidth(),image_lbl.getHeight(),Image.SCALE_SMOOTH);
+        image_lbl.setIcon(icon);
+    }//GEN-LAST:event_btnaddimgActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
         TecnicalOfficer tecnicalofficer = new TecnicalOfficer();
-        
+
         tecnicalofficer.setLogingState("technical_officer");
-        
+
         tecnicalofficer.setUserID(txtid.getText());
         tecnicalofficer.setNIC(txtnic.getText());
         tecnicalofficer.setFirstName(txtfname.getText());
@@ -1211,23 +1074,25 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         tecnicalofficer.setPhoneNumner(txtpno.getText());
         tecnicalofficer.setEmail(txtemail.getText());
         tecnicalofficer.setImagePathe(txtimagepath.getText());
-        
+
         tecnicalofficer.setDepartmentID(combodptid.getSelectedItem().toString());
-        
-        
-        
+
         tecnicalofficer.editProfile(tecnicalofficer);
-        
-        UserLoad(12 , "technical_officer");
-        
+
+        UserLoad("technical_officer");
+
     }//GEN-LAST:event_btnupdateActionPerformed
+
+    private void txtbirthdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbirthdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtbirthdateActionPerformed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         NoticeForm n = new NoticeForm();
         n.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
-
+    int search;
     /**
      * @param args the command line arguments
      */
@@ -1259,6 +1124,7 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TecnicalOfficerForm().setVisible(true);
+                
             }
         });
     }
@@ -1270,10 +1136,6 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> combodptid;
     private javax.swing.JComboBox<String> combosex;
     private javax.swing.JLabel image_lbl;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -1281,15 +1143,7 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1297,10 +1151,6 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -1329,7 +1179,6 @@ public class TecnicalOfficerForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

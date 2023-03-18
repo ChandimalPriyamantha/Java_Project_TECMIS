@@ -45,9 +45,6 @@ public class TecnicalOfficer extends User {
             ps.setString(15, tecnicalofficer.getUserID());
             ps.executeUpdate();
             
-            
-           
-            
             JOptionPane.showMessageDialog(null, "Updated!");
         } catch (Exception e) {
             e.printStackTrace();

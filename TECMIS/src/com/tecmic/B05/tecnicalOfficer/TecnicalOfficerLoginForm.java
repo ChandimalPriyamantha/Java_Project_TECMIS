@@ -18,7 +18,7 @@ public class TecnicalOfficerLoginForm extends javax.swing.JFrame {
     public TecnicalOfficerLoginForm() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -219,6 +219,8 @@ public class TecnicalOfficerLoginForm extends javax.swing.JFrame {
 
         txtUserName.setText("");
         txtPassword.setText("");
+        
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
