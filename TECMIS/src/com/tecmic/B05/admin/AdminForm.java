@@ -3089,7 +3089,7 @@ public class AdminForm extends javax.swing.JFrame {
         search_technical_officer =JOptionPane.showInputDialog("Enter Student ID");
 
         Admin admin = new Admin();
-        admin.get( search_technical_officer,"technical_officer");
+        admin.get(search_technical_officer, student);
 
         User_ID.setText(admin.getUserID());
         User_NIC.setText(admin.getNIC());
@@ -3126,7 +3126,7 @@ public class AdminForm extends javax.swing.JFrame {
         search_lecture =JOptionPane.showInputDialog("Enter Student ID");
 
         Admin admin = new Admin();
-        admin.get(  search_lecture,"lecture");
+        admin.get(search_lecture, student);
 
         User_ID1.setText(admin.getUserID());
         User_NIC1.setText(admin.getNIC());
@@ -3164,7 +3164,7 @@ public class AdminForm extends javax.swing.JFrame {
         search_student =JOptionPane.showInputDialog("Enter Student ID");
 
         Admin admin = new Admin();
-        admin.get(  search_student,"student");
+        admin.get(search_student, student);
 
         User_ID2.setText(admin.getUserID());
         User_NIC2.setText(admin.getNIC());
@@ -3202,7 +3202,7 @@ public class AdminForm extends javax.swing.JFrame {
         search_admin =JOptionPane.showInputDialog("Enter Student ID");
 
         Admin admin = new Admin();
-        admin.get(   search_admin,"admin");
+        admin.get(search_admin, student);
 
         User_ID3.setText(admin.getUserID());
         User_NIC3.setText(admin.getNIC());

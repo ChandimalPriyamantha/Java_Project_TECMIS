@@ -29,6 +29,10 @@ public class StudentLoginImp extends StudentLogin{
             if (rs.next()) {
                 
             JOptionPane.showMessageDialog(null, "You have successfully logged in");
+            
+            Auth auth=Auth.getInstance();
+            auth.setUsername(student.getUserName());
+            
             new StudentView().setVisible(true);
             
             
