@@ -39,7 +39,7 @@ public class TecnicalOfficerLoginImp extends TecnicalOfficerLogin{
             }
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error!");
+            JOptionPane.showMessageDialog(null, "Error-loginImp");
         }
     }
     

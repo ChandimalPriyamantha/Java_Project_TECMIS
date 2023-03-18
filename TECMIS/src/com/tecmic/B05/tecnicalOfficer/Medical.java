@@ -8,6 +8,7 @@ package com.tecmic.B05.tecnicalOfficer;
  *
  * @author ganidusahan
  */
+
 public class Medical {
     private int medical_id;
     private String date;
@@ -72,7 +73,6 @@ public class Medical {
     public void setStudent_id(String student_id) {
         this.student_id = student_id;
     }
-    
     
 
 }

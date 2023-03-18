@@ -10,9 +10,11 @@ import java.util.List;
  * @author ganidusahan
  */
 public interface AttendanceDAO {
+    
     public void save(Attendance attendance);
     public void update(Attendance attendance);
     public void delete(Attendance attendance);
     public Attendance get(int attendence_id);
     public List <Attendance> list();
+    
 }

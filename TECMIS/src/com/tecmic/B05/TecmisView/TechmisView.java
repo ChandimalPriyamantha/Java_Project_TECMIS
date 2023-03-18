@@ -8,6 +8,8 @@ import com.tecmic.B05.tecnicalOfficer.TecnicalOfficerLoginForm;
 import com.tecmic.B05.admin.AdminLogin;
 import com.tecmic.B05.admin.AdminLoginForm;
 import com.tecmic.B05.lecture.LectureView;
+import com.tecmic.B05.tecnicalOfficer.TecnicalOfficerForm;
+import com.tecmic.B05.tecnicalOfficer.TecnicalOfficerLogin;
 import com.tecmic.B05.user.User;
 
 /**
@@ -208,6 +210,7 @@ public class TechmisView extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
+        jPanel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel7.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jPanel7AncestorAdded(evt);
@@ -329,7 +332,7 @@ public class TechmisView extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel6MouseClicked
 
     private void jPanel7AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel7AncestorAdded
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jPanel7AncestorAdded
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked

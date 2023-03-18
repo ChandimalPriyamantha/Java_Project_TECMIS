@@ -38,7 +38,7 @@ public class AttendanceDAOImp implements AttendanceDAO{
             
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERROR");
+            JOptionPane.showMessageDialog(null, "ERROR-attendence-save");
         }
     }
 
@@ -64,7 +64,7 @@ public class AttendanceDAOImp implements AttendanceDAO{
             
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERROR");
+            JOptionPane.showMessageDialog(null, "ERROR-attendence-update");
         }
     }
 
@@ -83,7 +83,7 @@ public class AttendanceDAOImp implements AttendanceDAO{
             
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERROR");
+            JOptionPane.showMessageDialog(null, "ERROR-attendence-delete");
         }
         
     }
@@ -111,7 +111,7 @@ public class AttendanceDAOImp implements AttendanceDAO{
            
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERROR");
+            JOptionPane.showMessageDialog(null, "ERROR-attendence-search");
         }
         return atnd;
     }
@@ -142,7 +142,7 @@ public class AttendanceDAOImp implements AttendanceDAO{
            
        }catch(Exception e){
            e.printStackTrace();
-           JOptionPane.showMessageDialog(null, "ERROR");
+           JOptionPane.showMessageDialog(null, "ERROR-attendence-list");
        } 
         return list;
     }

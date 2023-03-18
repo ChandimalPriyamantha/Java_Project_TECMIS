@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  * @author ganidusahan
  */
 public class MedicalDAOImp implements MedicalDAO{
-
+    
     @Override
     public void save(Medical medical) {
         
@@ -38,7 +38,7 @@ public class MedicalDAOImp implements MedicalDAO{
             
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERROR");
+            JOptionPane.showMessageDialog(null, "ERROR-medical-saved");
         }
         
     }
@@ -64,7 +64,7 @@ public class MedicalDAOImp implements MedicalDAO{
             
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERROR");
+            JOptionPane.showMessageDialog(null, "ERROR-medical-update");
         }
         
     }
@@ -83,7 +83,7 @@ public class MedicalDAOImp implements MedicalDAO{
             
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERROR");
+            JOptionPane.showMessageDialog(null, "ERROR-medical-delete");
         }
         
         
@@ -111,7 +111,7 @@ public class MedicalDAOImp implements MedicalDAO{
            
         }catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "ERROR");
+            JOptionPane.showMessageDialog(null, "ERROR-medical-search");
         }
         return med;
         
@@ -144,10 +144,10 @@ public class MedicalDAOImp implements MedicalDAO{
            
        }catch(Exception e){
            e.printStackTrace();
-           JOptionPane.showMessageDialog(null, "ERROR");
+           JOptionPane.showMessageDialog(null, "ERROR-medical-list");
        } 
         return list;
     }
-        
+       
 }
     
