@@ -25,6 +25,24 @@ public class Medical {
     private String departmentId;
     private String description;
     private String student_id;
+    private String state;
+    private String file_path;
+
+    public String getFile_path() {
+        return file_path;
+    }
+
+    public void setFile_path(String file_path) {
+        this.file_path = file_path;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 
     public String getStudent_id() {
         return student_id;
@@ -92,17 +110,17 @@ public class Medical {
                
                 Medical medical = new Medical();
                 
-                medical.getMedicalID(rs.getString("medical_id"));
-                notice.setTitle(rs.getString("date"));
-                notice.setDate_Time(rs.getString("state"));
-                notice.setDescription(rs.getString("discription"));
-                notice.setDescription(rs.getString("department_id"));
-                notice.setDescription(rs.getString("subject_code"));
-                notice.setDescription(rs.getString("student_id"));
+                medical.setMedicalID(rs.getString("medical_id"));
+                medical.setDate(rs.getString("date"));
+                medical.setState(rs.getString("state"));
+                medical.setDescription(rs.getString("description"));
+                medical.setDepartmentId(rs.getString("department_id"));
+                medical.setSubjectCode(rs.getString("subject_code"));
+                medical.setStudent_id(rs.getString("student_id"));
                 
                 
  
-                list.add(notice);
+                list.add(medical);
             }
             
         } catch (Exception e) {
@@ -114,21 +132,24 @@ public class Medical {
     
     }
     
-    public Notice get(int id) {
-        Notice notice = new Notice();
+    public Medical get(String id) {
+        Medical medical = new Medical();
         try {
             Connection con = TecmisDB.getConnection();
-            String sql = "SELECT * FROM notice WHERE notice_id=?";
+            String sql = "SELECT * FROM medical WHERE medical_id=?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 
-                setNoticeID(rs.getString("notice_id"));
-                setFilePath(rs.getString("file_path"));
-                setTitle(rs.getString("title"));
-                setDate_Time(rs.getString("date_and_time"));
-                setDescription(rs.getString("discripsion"));
+                setMedicalID(rs.getString("medical_id"));
+                setDate(rs.getString("date"));
+                setState(rs.getString("state"));
+                setDescription(rs.getString("description"));
+                setDepartmentId(rs.getString("department_id"));
+                setSubjectCode(rs.getString("subject_code"));
+                setStudent_id(rs.getString("student_id"));
+                setFile_path(rs.getString("file_path"));
  
             }
             
@@ -136,7 +157,7 @@ public class Medical {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error");
         }
-        return notice;
+        return medical;
     }
     
     

@@ -39,9 +39,10 @@ public class AdminForm extends javax.swing.JFrame {
      */
     public AdminForm() {
         initComponents();
-        Noticeload();
-        Courseload();
-        UserLoad("Admin"); 
+        Noticeload();// call notice table
+        Courseload(); //cale course table
+        //cale user detailse
+        UserLoad("Admin"); //cale user load
         UserLoad("Student", "Student");
         UserLoad("lecture" , 7);
         UserLoad(12 , "technical_officer");
@@ -2374,6 +2375,7 @@ public class AdminForm extends javax.swing.JFrame {
     
     }
     
+   
     public void UserLoad(String key1){
         
         User user = new User();
@@ -2389,7 +2391,6 @@ public class AdminForm extends javax.swing.JFrame {
         }   
     
     }
-    
     
      public void UserLoad(String Key1, String key2){
         

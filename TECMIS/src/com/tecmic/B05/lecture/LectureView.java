@@ -4,6 +4,7 @@
  */
 package com.tecmic.B05.lecture;
 
+import com.tecmic.B05.Medical.Medical;
 import com.tecmic.B05.TecmisDB.TecmisDB;
 import com.tecmic.B05.TecmisView.TechmisView;
 import com.tecmic.B05.admin.Admin;
@@ -40,6 +41,8 @@ public class LectureView extends javax.swing.JFrame {
         UserLoad("Student", "Student");
         Noticeload();
         btnLectureUpdate.setEnabled(false);
+        MedicalLoad();
+        Download1.setEnabled(false);
     }
 
     /**
@@ -145,7 +148,7 @@ public class LectureView extends javax.swing.JFrame {
         jPanel22 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        table1 = new javax.swing.JTable();
+        table_medical = new javax.swing.JTable();
         jPanel23 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -165,6 +168,9 @@ public class LectureView extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         Serch1 = new javax.swing.JButton();
+        jButton50 = new javax.swing.JButton();
+        Download1 = new javax.swing.JButton();
+        student_id1 = new javax.swing.JTextField();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
@@ -1056,7 +1062,7 @@ public class LectureView extends javax.swing.JFrame {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        table1.setModel(new javax.swing.table.DefaultTableModel(
+        table_medical.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -1067,9 +1073,9 @@ public class LectureView extends javax.swing.JFrame {
                 "Medical ID", "Date", "State", "Description", "Department ID", "Subject Code", "Student ID"
             }
         ));
-        table1.setGridColor(new java.awt.Color(0, 153, 153));
-        table1.setSelectionBackground(new java.awt.Color(45, 182, 171));
-        jScrollPane8.setViewportView(table1);
+        table_medical.setGridColor(new java.awt.Color(0, 153, 153));
+        table_medical.setSelectionBackground(new java.awt.Color(45, 182, 171));
+        jScrollPane8.setViewportView(table_medical);
 
         jPanel24.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -1237,6 +1243,27 @@ public class LectureView extends javax.swing.JFrame {
             }
         });
 
+        jButton50.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton50.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-clear-symbol-30.png")); // NOI18N
+        jButton50.setText("Clear");
+        jButton50.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton50ActionPerformed(evt);
+            }
+        });
+
+        Download1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Download1.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-download-30.png")); // NOI18N
+        Download1.setText("Download");
+        Download1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Download1ActionPerformed(evt);
+            }
+        });
+
+        student_id1.setForeground(new java.awt.Color(255, 255, 255));
+        student_id1.setBorder(null);
+
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
@@ -1245,6 +1272,12 @@ public class LectureView extends javax.swing.JFrame {
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(Serch1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jButton50, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(Download1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(student_id1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
@@ -1253,7 +1286,11 @@ public class LectureView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Serch1)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Serch1)
+                    .addComponent(jButton50)
+                    .addComponent(Download1)
+                    .addComponent(student_id1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -1549,9 +1586,27 @@ public class LectureView extends javax.swing.JFrame {
             String date_time = rs.getDate_Time();
             String discription = rs.getDescription();
             DFT.addRow(new Object[]{notice_id,title,date_time,discription});
-        }   
+        } 
+        
+      
     
     }
+     
+     public void MedicalLoad(){
+      
+        Medical medical = new Medical();
+        List<Medical> list = medical.list();
+        DefaultTableModel DFT = (DefaultTableModel) table_medical.getModel();
+        DFT.setRowCount(0);
+        for(Medical rs: list)
+        {
+            String notice_id = rs.getMedicalID();
+            DFT.addRow(new Object[]{notice_id,rs.getDate(),rs.getState(),rs.getDescription(),rs.getDepartmentId(),
+                                     rs.getSubjectCode(),rs.getStudent_id()});
+        } 
+      
+      
+      }
     private void btnLectureUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLectureUpdateActionPerformed
         // TODO add your handling code here:
         Lecture lecture = new Lecture();
@@ -1890,7 +1945,73 @@ public class LectureView extends javax.swing.JFrame {
 
     private void Serch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Serch1ActionPerformed
         // TODO add your handling code here:
+        
+       String search_medical =JOptionPane.showInputDialog("Enter Medical ID");
+
+       Medical medical = new Medical();
+       medical.get(search_medical);
+
+       medical_id.setText(medical.getMedicalID());
+       date.setText(medical.getDate());
+       state.setText(medical.getState());
+       description.setText(medical.getDescription());
+       department_id.setText(medical.getDepartmentId());
+       subject_code.setText(medical.getSubjectCode());
+       student_id.setText(medical.getStudent_id());
+       student_id1.setText(medical.getFile_path());
+       
+       Download1.setEnabled(true);
+        
+       
     }//GEN-LAST:event_Serch1ActionPerformed
+
+    private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
+        // TODO add your handling code here:
+        
+       medical_id.setText("");
+       date.setText("");
+       state.setText("");
+       description.setText("");
+       department_id.setText("");
+       subject_code.setText("");
+       student_id.setText("");
+       
+       Download1.setEnabled(false);
+       
+    }//GEN-LAST:event_jButton50ActionPerformed
+
+    private void Download1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Download1ActionPerformed
+        // TODO add your handling code here:
+        
+        
+      try{
+            
+            File file = new File( student_id1.getText());
+            
+            
+            if(file.exists()){
+               if(Desktop.isDesktopSupported()){
+                 Desktop.getDesktop().open(file);
+                 Download1.setEnabled(false);
+               }else{
+               
+                    JOptionPane.showMessageDialog(null, "Not Supported");
+               
+               }
+            }else{
+                       JOptionPane.showMessageDialog(null, "File Not Supported");
+                       }
+        
+        }catch(Exception e){
+        
+            e.printStackTrace();
+        
+        }
+        
+       
+       
+    
+    }//GEN-LAST:event_Download1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1929,6 +2050,7 @@ public class LectureView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Download;
+    private javax.swing.JButton Download1;
     private javax.swing.JButton Serch;
     private javax.swing.JButton Serch1;
     private javax.swing.JTextField User_FirstName1;
@@ -1959,6 +2081,7 @@ public class LectureView extends javax.swing.JFrame {
     private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton48;
     private javax.swing.JButton jButton49;
+    private javax.swing.JButton jButton50;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -2037,12 +2160,13 @@ public class LectureView extends javax.swing.JFrame {
     private javax.swing.JTextField medical_id;
     private javax.swing.JTextField state;
     private javax.swing.JTextField student_id;
+    private javax.swing.JTextField student_id1;
     private javax.swing.JLabel student_image_path;
     private javax.swing.JTextField student_level;
     private javax.swing.JTable student_table;
     private javax.swing.JTextField subject_code;
     private javax.swing.JTable table;
-    private javax.swing.JTable table1;
+    private javax.swing.JTable table_medical;
     private javax.swing.JLabel title;
     private javax.swing.JTextField user_BOD1;
     private javax.swing.JTextField user_BOD2;
