@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
  */
 public  class User {
     
+
     private String LogingState;
     private String UserID;
     private String FirstName;
@@ -381,7 +382,7 @@ public  class User {
         }
         
         }else if(accessType == "lecture"){
-        
+             System.out.println(id);
              try {
             Connection con = TecmisDB.getConnection();
             String sql = "SELECT * FROM lecturer WHERE id=?";

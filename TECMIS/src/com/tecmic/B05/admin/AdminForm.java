@@ -4,6 +4,7 @@
  */
 package com.tecmic.B05.admin;
 
+import com.tecmic.B05.TecmisView.TechmisView;
 import com.tecmic.B05.user.User;
 import com.tecmis.B05.course.Course;
 import com.tecmis.B05.notice.Notice;
@@ -15,8 +16,7 @@ import java.io.IOException;
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDateTime; 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.imageio.ImageIO;
 
 import javax.swing.ImageIcon;
@@ -285,6 +285,7 @@ public class AdminForm extends javax.swing.JFrame {
         table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -2332,8 +2333,8 @@ public class AdminForm extends javax.swing.JFrame {
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         // TODO add your handling code here:
         
-        
-      this.dispose();
+     new TechmisView().setVisible(true);
+     this.dispose();
     }//GEN-LAST:event_jLabel17MouseClicked
          
     public void Noticeload(){
@@ -2411,7 +2412,7 @@ public class AdminForm extends javax.swing.JFrame {
         
         User user = new User();
         List<User> list = user.list("lecture");
-        DefaultTableModel DFT = (DefaultTableModel) lecture_table.getModel();
+        DefaultTableModel DFT = (DefaultTableModel)lecture_table.getModel();
         DFT.setRowCount(0);
         for(User rs: list)
         {
@@ -3011,7 +3012,7 @@ public class AdminForm extends javax.swing.JFrame {
         
         
         image_lbl6.setText(filename);
-        System.out.println(image_lbl6);
+        //System.out.println(image_lbl6);
         ImageIcon icon = new ImageIcon(filename);
         //Image i = icon.getImage().getScaledInstance(image_lbl.getWidth(),image_lbl.getHeight(),Image.SCALE_SMOOTH);
         image_lbl6.setIcon(icon);
@@ -3042,7 +3043,7 @@ public class AdminForm extends javax.swing.JFrame {
         
         
         
-        admin.CreatUser(admin);
+         admin.CreatUser(admin);
          UserLoad("Admin"); 
         
         image_lbl6.setIcon(null);

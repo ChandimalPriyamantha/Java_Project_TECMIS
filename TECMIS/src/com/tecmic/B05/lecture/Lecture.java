@@ -6,8 +6,7 @@ package com.tecmic.B05.lecture;
 
 import com.tecmic.B05.TecmisDB.TecmisDB;
 import com.tecmic.B05.user.User;
-import com.tecmis.B05.notice.Notice;
-import java.awt.Desktop;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.sql.Connection;

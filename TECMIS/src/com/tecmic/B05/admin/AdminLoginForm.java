@@ -117,7 +117,7 @@ public class AdminLoginForm extends javax.swing.JFrame {
         });
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setText("Login as an Admin");
+        jButton1.setText("Login as Admin");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -237,6 +237,9 @@ public class AdminLoginForm extends javax.swing.JFrame {
         
         txtUserName.setText("");
         txtPassword.setText("");
+        
+        this.dispose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
