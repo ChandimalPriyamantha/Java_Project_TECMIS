@@ -5,6 +5,7 @@
 package com.tecmis.BO5.student;
 
 import com.tecmis.B05.notice.Notice;
+import com.tecmis.B05.course.Course;
 import static com.tecmis.BO5.student.StudentDBCon.con;
 import com.tecmis.BO5.student.Student;
 import java.sql.ResultSet;
@@ -24,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ACER
  */
-public class StudentView extends javax.swing.JFrame
+public class StudentView extends javax.swing.JFrame implements StudentViewInterface
 {
     
 
@@ -50,6 +51,39 @@ public class StudentView extends javax.swing.JFrame
             dt.addRow(new Object[]{id,date,state,subject_id,description});
         }
     }
+    
+    public void LoadCourse()
+    {
+        Course course=new Course();
+        List<Course> list=course.list();
+        DefaultTableModel dt = (DefaultTableModel) coursetbl.getModel();
+         dt.setRowCount(0);
+         for(Course rs:list)
+         {
+              String department_id=rs.getDepartmentID();
+              String course_id =rs.getCourseID();
+              String course_name=rs.getCourseName();
+              int credit=rs.getCredit();
+              String courseType=rs.getCourseType();
+              int level=rs.getLevel();
+              
+              dt.addRow(new Object[]{course_id,course_name,credit,courseType,level});
+         }
+    }
+    
+    
+    public void LoadResults()
+    {
+        
+    }
+    
+    public void LoadAttendance()
+    {
+        
+    }
+    
+    
+    
     
     
     /*
@@ -195,7 +229,7 @@ public class StudentView extends javax.swing.JFrame
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        coursetbl = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -708,7 +742,7 @@ public class StudentView extends javax.swing.JFrame
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setText("Courses");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        coursetbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -719,7 +753,7 @@ public class StudentView extends javax.swing.JFrame
                 "Course code", "Course Name", "Credit", "Type"
             }
         ));
-        jScrollPane5.setViewportView(jTable1);
+        jScrollPane5.setViewportView(coursetbl);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -896,6 +930,7 @@ public class StudentView extends javax.swing.JFrame
     private javax.swing.JDesktopPane ProfilePane;
     private javax.swing.JComboBox<String> Sub;
     private javax.swing.JTable attenTbl;
+    private javax.swing.JTable coursetbl;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -950,7 +985,6 @@ public class StudentView extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTable resultTbl;
     // End of variables declaration//GEN-END:variables
