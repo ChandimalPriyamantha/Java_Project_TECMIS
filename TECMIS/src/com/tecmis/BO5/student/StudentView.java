@@ -5,6 +5,7 @@
 package com.tecmis.BO5.student;
 
 import com.tecmis.B05.notice.Notice;
+import com.tecmis.B05.marks.marks;
 import com.tecmis.B05.course.Course;
 import static com.tecmis.BO5.student.StudentDBCon.con;
 import com.tecmis.BO5.student.Student;
@@ -33,6 +34,9 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     {
         initComponents();
     }
+    
+    
+    
     
     public void LoadMedical (){
         Medical md = new Medical();
@@ -72,9 +76,21 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     }
     
     
-    public void LoadResults()
+    public void LoadMarks()
     {
-        
+        Marks Stmarks=new Marks();
+        List<Results> list=result.list();
+        DefaultTableModel dt = (DefaultTableModel) resultTbl.getModel();
+         dt.setRowCount(0);
+         for(Results rs:list)
+         {
+             
+             
+             
+             
+             dt.addRow(new Object[]{
+         }
+                
     }
     
     public void LoadAttendance()
