@@ -72,7 +72,7 @@ public class NoticeForm extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Notice ID", "Link", "Title", "Date & Time", "Discription"
+                "Notice ID", "Link", "Title", "Date & Time", "Description"
             }
         ) {
             Class[] types = new Class [] {

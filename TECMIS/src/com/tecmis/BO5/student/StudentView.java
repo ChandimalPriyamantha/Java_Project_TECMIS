@@ -78,105 +78,61 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     
     public void LoadMarks()
     {
-        Marks Stmarks=new Marks();
-        List<Results> list=result.list();
-        DefaultTableModel dt = (DefaultTableModel) resultTbl.getModel();
+        marks Stmarks=new marks();
+        List<marks> list=Stmarks.list();
+        DefaultTableModel dt = (DefaultTableModel)resultTbl.getModel();
          dt.setRowCount(0);
-         for(Results rs:list)
+         for(marks rs:list)
          {
+              int mark_id= rs.getMark_id();
+              String grade=  rs.getGrade();
+              String level=  rs.getLevel() ;
+              int assessment= rs.getAssessment() ;
+              int quiz=  rs.getQuiz() ;
+              int course_id= rs.getCourse_id() ;
+              int sgpa=rs.getSgpa() ;
+              int cgpa= rs.getCgpa() ;
+              int mid_term= rs.getMid_term() ;
+              int final_theory= rs.getFinal_thoery() ;
+              int final_practical = rs.getFinal_practical() ;
+              String student_id= rs.getStudent_id() ;
+              String department_id =  rs.getStudent_department_department_id();
              
              
              
-             
-             dt.addRow(new Object[]{
+             dt.addRow(new Object[]{course_id,grade});
          }
-                
     }
+         
     
     public void LoadAttendance()
-    {
-        
-    }
-    
-    
-    
-    
-    
-    /*
-       public ResultSet tableview(String query)
-       {
-         try
-        {
-            PreparedStatement pst=con.prepareStatement(query);
-            ResultSet rs;
-                    rs=pst.executeQuery();
-            
-         //   tableview(query); 
-
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-         return rs;
-     }
-
+    {   
+        Attendance att=new Attendance();
+        String sub=(String)subjectSelect.getSelectedItem();
        
-       public void attendance ()
-       {
-        String subject=Sub.getSelectedItem().toString();
-        String query="SELECT hour,time,type,state FROM attendance WHERE student_id=  AND course_name='"+subject+"' ";
-        tableview(query);
-        
-       }
-       
-       public void medicle()
-       {
-         String query="SELECT date,subject_code,description,state FROM medical WHERE student_id=  ";
-        tableview(query);
-      
-       }
-       
-       
-       public void notice()
-       {
-        String sql="SELECT (date_and_time,discripsion,file_path) FROM notice";
-        tableview(sql);
-       
-       }
-       
-         public void medicle()
-       {
-        String sql="SELECT (subject_code,description,state) FROM medical WHERE student_id";
-        tableview(sql);
-       
-       } 
-         
-         public void Course()
-
+        List<Attendance> list=att.list();
+        DefaultTableModel dt = (DefaultTableModel)attenTbl.getModel();
+         dt.setRowCount(0);
+         for(Attendance rs:list)
          {
+              String student_id=rs.getStudent_id();
+              int  attId=rs.getAttendence_id();
+              String type=rs.getType();
+              String state=rs.getState();
+              String date=rs.getDate();
+              String course_id=rs.getCourse_id();
+              String lecturer_id=rs.getLecturer_id();
+              int  hour=rs.getHour();
              
-             String levelSQL="select level from student where id=?";
-             setLevel(levelSQL);
-             String Stlevel=getLevel();
-             String sql="SELECT course_id,course_name,credit,course_type FROM course  where level='"+Stlevel+"'";
+             if(sub==course_id)
+             {
+             dt.addRow(new Object[]{date,type,hour,state});
+             }
+             }
          }
-       
-        
-       */  
-
-   // private void initComponents() {
-    //    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    //}
-         
-         
-            
-    
-   
-    
-
         
     
+
     
     
     @SuppressWarnings("unchecked")
@@ -238,7 +194,7 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
         jLabel40 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        Sub = new javax.swing.JComboBox<>();
+        subjectSelect = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         attenTbl = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
@@ -395,7 +351,7 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
                 .addComponent(ProfilePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -701,14 +657,14 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
                 .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(363, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Medicle", new javax.swing.ImageIcon("C:\\wamp64\\www\\Java_Project\\StudentImages\\medicle.png"), jPanel4); // NOI18N
 
         jLabel8.setText("Subject   :");
 
-        Sub.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        subjectSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         attenTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -733,7 +689,7 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
                         .addGap(61, 61, 61)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
-                        .addComponent(Sub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(subjectSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(250, 250, 250)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -744,7 +700,7 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Sub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subjectSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -797,7 +753,7 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addContainerGap(493, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Course", new javax.swing.ImageIcon("C:\\wamp64\\www\\Java_Project\\StudentImages\\course.png"), jPanel3); // NOI18N
@@ -944,7 +900,6 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     private javax.swing.JLabel GPA1;
     private javax.swing.JTable Meditbl;
     private javax.swing.JDesktopPane ProfilePane;
-    private javax.swing.JComboBox<String> Sub;
     private javax.swing.JTable attenTbl;
     private javax.swing.JTable coursetbl;
     private javax.swing.JButton jButton1;
@@ -1003,7 +958,13 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTable resultTbl;
+    private javax.swing.JComboBox<String> subjectSelect;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void LoadResults() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 
 }

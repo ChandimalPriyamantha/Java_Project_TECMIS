@@ -180,7 +180,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jToolBar1" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace pref="32" max="32767" attributes="0"/>
+                              <EmptySpace pref="241" max="32767" attributes="0"/>
                               <Component id="ProfilePane" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -833,7 +833,7 @@
                               <Component id="jLabel40" min="-2" pref="36" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jScrollPane4" min="-2" pref="332" max="-2" attributes="0"/>
-                              <EmptySpace pref="154" max="32767" attributes="0"/>
+                              <EmptySpace pref="363" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -918,7 +918,7 @@
                                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                                       <Component id="jLabel8" min="-2" pref="73" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Component id="Sub" min="-2" max="-2" attributes="0"/>
+                                      <Component id="subjectSelect" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
@@ -934,7 +934,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="Sub" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="subjectSelect" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -950,7 +950,7 @@
                         <Property name="text" type="java.lang.String" value="Subject   :"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="Sub">
+                    <Component class="javax.swing.JComboBox" name="subjectSelect">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -1069,7 +1069,7 @@
                               <Component id="jScrollPane5" min="-2" pref="168" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="284" max="32767" attributes="0"/>
+                              <EmptySpace pref="493" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

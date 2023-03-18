@@ -8,11 +8,13 @@ package com.tecmis.BO5.student;
  *
  * @author ACER
  */
-public interface StudentViewInterface {
+public interface StudentViewInterface 
+{
     
     void LoadMedical ();
     void LoadCourse();
     void LoadResults();
     void LoadAttendance();
+
     
 }
