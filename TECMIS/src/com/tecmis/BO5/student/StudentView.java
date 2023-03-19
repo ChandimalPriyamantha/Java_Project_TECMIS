@@ -16,7 +16,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
+//import net.proteanit.sql.DbUtils;
 import com.tecmis.B05.notice.Notice;
 import java.awt.Desktop;
 import java.io.File;

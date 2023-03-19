@@ -16,9 +16,9 @@ public class TecmisDB {
     
     static Connection con;
     static String driver = "com.mysql.jdbc.Driver";
-    static String url = "jdbc:mysql://localhost:3306/tecmis_db";
+    static String url = "jdbc:mysql://localhost/tecmis_db";
     static String uname = "root";
-    static String pass = "";
+    static String pass = "1234";
     
     
     public static Connection getConnection()throws Exception{

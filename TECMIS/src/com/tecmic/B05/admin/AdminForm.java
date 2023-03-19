@@ -2357,7 +2357,7 @@ public class AdminForm extends javax.swing.JFrame {
         for(Course rs: list)
         {
             String course_id = rs.getCourseID();
-            int level = rs.getLevel();
+            String level = rs.getLevel();
             int credit = rs.getCredit();
             String course_name = rs.getCourseName();
             String course_type = rs.getCourseType();
@@ -2581,7 +2581,7 @@ public class AdminForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         String course_id = txtCourseID.getText();
-        int level = Integer.parseInt(txtlevel.getText());
+        String level =txtlevel.getText();
         int creadit = Integer.parseInt(txtcreadit.getText());
         String course_name = txtcourseNamae.getText();
         String course_type = txtCourseType.getText();
@@ -2619,7 +2619,7 @@ public class AdminForm extends javax.swing.JFrame {
         co.get(Search_course);
 
         txtCourseID.setText(co.getCourseID());
-        txtlevel.setText(Integer.toString(co.getLevel()));
+        txtlevel.setText((co.getLevel()));
         txtcreadit.setText(Integer.toString(co.getCredit()));
         txtcourseNamae.setText(co.getCourseName());
         txtCourseType.setText(co.getCourseType());
@@ -2635,7 +2635,7 @@ public class AdminForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //String course_id = txtCourseID.getText();
-        int level = Integer.parseInt(txtlevel.getText());
+        String level = txtlevel.getText();
         int creadit = Integer.parseInt(txtcreadit.getText());
         String course_name = txtcourseNamae.getText();
         String course_type = txtCourseType.getText();
@@ -3089,7 +3089,7 @@ public class AdminForm extends javax.swing.JFrame {
         search_technical_officer =JOptionPane.showInputDialog("Enter Student ID");
 
         Admin admin = new Admin();
-        admin.get(search_technical_officer, student);
+        admin.get(search_technical_officer, "technical_officer");
 
         User_ID.setText(admin.getUserID());
         User_NIC.setText(admin.getNIC());
@@ -3126,7 +3126,7 @@ public class AdminForm extends javax.swing.JFrame {
         search_lecture =JOptionPane.showInputDialog("Enter Student ID");
 
         Admin admin = new Admin();
-        admin.get(search_lecture, student);
+        admin.get(search_lecture, "lecture");
 
         User_ID1.setText(admin.getUserID());
         User_NIC1.setText(admin.getNIC());
@@ -3164,7 +3164,7 @@ public class AdminForm extends javax.swing.JFrame {
         search_student =JOptionPane.showInputDialog("Enter Student ID");
 
         Admin admin = new Admin();
-        admin.get(search_student, student);
+        admin.get(search_student, "student");
 
         User_ID2.setText(admin.getUserID());
         User_NIC2.setText(admin.getNIC());
@@ -3202,7 +3202,7 @@ public class AdminForm extends javax.swing.JFrame {
         search_admin =JOptionPane.showInputDialog("Enter Student ID");
 
         Admin admin = new Admin();
-        admin.get(search_admin, student);
+        admin.get(search_admin, "admin");
 
         User_ID3.setText(admin.getUserID());
         User_NIC3.setText(admin.getNIC());
