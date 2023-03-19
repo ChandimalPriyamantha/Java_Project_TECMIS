@@ -81,64 +81,16 @@ public class Course {
     
     
     
-   
-     public String studentDetails(String user)
-    {
-       Student s=new Student();
-        try
-        {
-           
-            Connection con = TecmisDB.getConnection();
-            String sql = "SELECT * FROM student where username='"+ user + "'";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            
-            if(rs.next()){
-                
-                s.setUserID(rs.getString("id"));
-                s.setNIC(rs.getString("nic"));
-                s.setFirstName(rs.getString("fname"));
-                s.setMiddleName(rs.getString("mname"));
-                s.setLastName(rs.getString("lname"));
-                s.setBirthDate(rs.getString("birth_date"));
-                s.setAddress(rs.getString("address"));
-                s.setSex(rs.getString("sex"));
-                s.setLevel(rs.getString("level"));
-                s.setPhoneNumner(rs.getString("phone_no"));
-                s.setUserName(rs.getString("username"));
-                s.setPassword(rs.getString("password"));
-                s.setEmail(rs.getString("email"));
-                s.setImagePathe(rs.getString("image_path"));
-                s.setLevel(rs.getString("level"));
-                s.setDepartmentID(rs.getString("department_id"));
- 
-            }
-           
-           
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-         String StLevel=s.getLevel();
-         
-        return StLevel;
-    }
-     
      
     public List<Course> list() {
-        
-             
-
-            
+           
        List<Course> list = new ArrayList<Course>();
         try {
         
            Connection con = TecmisDB.getConnection(); 
           
-           String s_level=studentDetails(usr);
-            System.out.println(s_level);
-            String sql = "SELECT * FROM course";
+           
+            String sql = "SELECT * FROM course INNER JOIN student ON course.level == student.level where student_id='"+usr+"'";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
@@ -168,10 +120,7 @@ public class Course {
     
       public  Course get(String id) {
         Course course = new Course();
-        Auth auth = Auth.getInstance();
-      String usr = auth.getUsername();
-      
-      
+       
         try {
             Connection con = TecmisDB.getConnection();
             String sql = "SELECT * FROM course WHERE course_id=?";

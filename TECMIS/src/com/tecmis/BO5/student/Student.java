@@ -20,16 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class Student extends User
 {
-    
-    
 
-    
-    
-    
-    
-     
-    
-    
     
     public void EditProfile(Student student){
        String sql;

@@ -478,19 +478,13 @@
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="3" rowCount="4">
+                              <Table columnCount="2" rowCount="4">
                                 <Column editable="false" title="Subject Code " type="java.lang.Object"/>
-                                <Column editable="false" title="Subject Name" type="java.lang.Object"/>
                                 <Column editable="false" title="Grade" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                   <Title/>
                                   <Editor/>
@@ -1082,7 +1076,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel11" min="-2" pref="99" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                              <Component id="sub" min="-2" pref="108" max="-2" attributes="0"/>
+                                              <Component id="CourseName" min="-2" pref="108" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                                               <Component id="search" min="-2" max="-2" attributes="0"/>
                                           </Group>
@@ -1108,7 +1102,7 @@
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="sub" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CourseName" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="search" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -1173,9 +1167,9 @@
                         <Property name="text" type="java.lang.String" value="Course Materials"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="sub">
+                    <Component class="javax.swing.JTextField" name="CourseName">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CourseNameActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel11">

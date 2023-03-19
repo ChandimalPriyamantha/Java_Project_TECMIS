@@ -6,7 +6,6 @@ package com.tecmis.BO5.student;
 
 import com.tecmic.B05.TecmisDB.TecmisDB;
 import com.tecmis.B05.notice.Notice;
-import com.tecmis.B05.marks.marks;
 import com.tecmis.B05.course.Course;
 import com.tecmis.B05.course.CourseMaterials;
 import static com.tecmis.BO5.student.StudentDBCon.con;
@@ -64,10 +63,9 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
             String subject_id = rs.getSubject_code();
             String student_id = rs.getStudent_id();
             String description = rs.getDescription();
-          /* if(student_id==uname)
-           {*/
+         
             dt.addRow(new Object[]{date,subject_id,description,state});
-          /* }*/
+          
             }
         }
     
@@ -75,14 +73,19 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     public void LoadCourse()
     {   
         try{
-     //   Connection con =  TecmisDB.getConnection();
+      Connection con =  TecmisDB.getConnection();
         Course course=new Course();
         List<Course> list=course.list();
         
         Auth auth = Auth.getInstance();
         String usr = auth.getUsername();
         
-        
+        String q="select level from student where id='"+usr+"'";
+        PreparedStatement ps = con.prepareStatement(q);
+        PreparedStatement l=(PreparedStatement) ps.executeQuery(q);
+            System.out.println(l); 
+         
+         
         DefaultTableModel dt = (DefaultTableModel) coursetbl.getModel();
          dt.setRowCount(0);
          for(Course rs:list)
@@ -98,18 +101,7 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
               dt.addRow(new Object[]{course_id,course_name,credit,courseType});
               //}
         }
-         
-        /* String subject=sub.getText();
-         
-        String sub="select course_code,filePath from coursematerials where course_code='"+subject+"'";
-        PreparedStatement pst = con.prepareStatement(userlevel);
-        //pst.setString(1, course.getLevel());
-        ResultSet rsSub = pst.executeQuery();
-         
-         
-         get(subject);
-         */
-         
+  
         }catch(Exception e){
                 e.printStackTrace();
                 }
@@ -119,13 +111,9 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     
     public void LoadMarks()
     {
-        marks Stmarks=new marks();
-        List<marks> list=Stmarks.list();
-        
-        Auth auth = Auth.getInstance();
-        String usr = auth.getUsername();
+        marks Stmark=new marks();
+        List<marks> list=Stmark.list();
      
-        
         DefaultTableModel dt = (DefaultTableModel)resultTbl.getModel();   
          dt.setRowCount(0);
          for(marks rs:list)
@@ -144,10 +132,9 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
               String student_id= rs.getStudent_id() ;
               String department_id =  rs.getStudent_department_department_id();
              
-             if(usr==student_id)
-            {             
+                  
              dt.addRow(new Object[]{course_id,grade});
-             }
+             
              }
          }
     
@@ -253,7 +240,7 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
         jScrollPane5 = new javax.swing.JScrollPane();
         coursetbl = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        sub = new javax.swing.JTextField();
+        CourseName = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         search = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -418,17 +405,17 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
         resultTbl.setForeground(new java.awt.Color(255, 255, 255));
         resultTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Subject Code ", "Subject Name", "Grade"
+                "Subject Code ", "Grade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -448,7 +435,6 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
         if (resultTbl.getColumnModel().getColumnCount() > 0) {
             resultTbl.getColumnModel().getColumn(0).setResizable(false);
             resultTbl.getColumnModel().getColumn(1).setResizable(false);
-            resultTbl.getColumnModel().getColumn(2).setResizable(false);
         }
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -731,7 +717,7 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(102, 102, 102)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Medicle", new javax.swing.ImageIcon("C:\\wamp64\\www\\Java_Project\\StudentImages\\medicle.png"), jPanel4); // NOI18N
@@ -784,7 +770,7 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblsubcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)))
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Attendance", new javax.swing.ImageIcon("C:\\wamp64\\www\\Java_Project\\StudentImages\\attendance.png"), jPanel9); // NOI18N
@@ -806,9 +792,9 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
 
         jLabel9.setText("Course Materials");
 
-        sub.addActionListener(new java.awt.event.ActionListener() {
+        CourseName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subActionPerformed(evt);
+                CourseNameActionPerformed(evt);
             }
         });
 
@@ -837,7 +823,7 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(47, 47, 47)
-                                .addComponent(sub, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CourseName, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(66, 66, 66)
                                 .addComponent(search)))))
                 .addGap(485, 485, 485))
@@ -856,7 +842,7 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
                 .addComponent(jLabel9)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CourseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
                     .addComponent(search))
                 .addGap(0, 0, 0))
@@ -960,12 +946,13 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
         ProfilePane.add(nf).setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void subActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subActionPerformed
+    private void CourseNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CourseNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_subActionPerformed
+    }//GEN-LAST:event_CourseNameActionPerformed
 
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
         // TODO add your handling code here:
+   
     }//GEN-LAST:event_searchActionPerformed
 
     /**
@@ -1010,6 +997,7 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
+    private javax.swing.JTextField CourseName;
     private javax.swing.JLabel GPA;
     private javax.swing.JLabel GPA1;
     private javax.swing.JTable Meditbl;
@@ -1077,7 +1065,6 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     private javax.swing.JTextField lblsubcode;
     private javax.swing.JTable resultTbl;
     private javax.swing.JButton search;
-    private javax.swing.JTextField sub;
     // End of variables declaration//GEN-END:variables
 
 

@@ -26,6 +26,9 @@ public class Medical {
     private String department_id;
     private String subject_code;
     private String student_id;
+    
+    Auth auth = Auth.getInstance();
+    String usr = auth.getUsername();
 
     public int getMedical_id() {
         return medical_id;
@@ -88,7 +91,7 @@ public class Medical {
        List<Medical> list = new ArrayList<Medical>();
         try {
             Connection con = TecmisDB.getConnection();
-            String sql = "SELECT * FROM medical";
+            String sql = "SELECT * FROM medical where student_id='"+usr+"'";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
