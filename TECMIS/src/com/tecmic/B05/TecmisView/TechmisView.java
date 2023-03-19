@@ -8,7 +8,10 @@ import com.tecmic.B05.admin.AdminLogin;
 import com.tecmic.B05.admin.AdminLoginForm;
 import com.tecmic.B05.lecture.LectureLoginForm;
 import com.tecmic.B05.lecture.LectureView;
+import com.tecmic.B05.tecnicalOfficer.TecnicalOfficerLogin;
+import com.tecmic.B05.tecnicalOfficer.TecnicalOfficerLoginForm;
 import com.tecmic.B05.user.User;
+import com.tecmis.BO5.student.StudentLoginForm;
 
 /**
  *
@@ -216,6 +219,12 @@ public class TechmisView extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+        });
+
         jLabel7.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-technical-64.png")); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -313,6 +322,7 @@ public class TechmisView extends javax.swing.JFrame {
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
         // TODO add your handling code here:
+        new StudentLoginForm().setVisible(true);
         
        
     }//GEN-LAST:event_jPanel5MouseClicked
@@ -322,6 +332,12 @@ public class TechmisView extends javax.swing.JFrame {
         new LectureLoginForm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel6MouseClicked
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        // TODO add your handling code here:
+        
+        new TecnicalOfficerLoginForm().setVisible(true);
+    }//GEN-LAST:event_jPanel7MouseClicked
 
     /**
      * @param args the command line arguments
