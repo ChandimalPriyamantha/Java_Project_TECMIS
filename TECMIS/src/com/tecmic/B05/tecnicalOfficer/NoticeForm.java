@@ -68,6 +68,8 @@ public class NoticeForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon("/Users/ganidusahan/Desktop/ganidume/Java_Project/Images/icons8-back-arrow-50.png")); // NOI18N
         jLabel1.setText("DashBoard");
@@ -142,7 +144,7 @@ public class NoticeForm extends javax.swing.JFrame {
                         .addComponent(lbltitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btndownload)
-                        .addGap(88, 88, 88))))
+                        .addGap(87, 87, 87))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel2)
@@ -179,6 +181,7 @@ public class NoticeForm extends javax.swing.JFrame {
         );
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("NOTICE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -240,7 +243,7 @@ public class NoticeForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void btndownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndownloadActionPerformed
-         Notice notice = new  Notice();
+        Notice notice = new  Notice();
         System.out.println(notice.getFilePath());
         
         if(file_path.getText()!= "File Path"){
@@ -277,7 +280,7 @@ public class NoticeForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btndownloadActionPerformed
 
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
-        int search_notice = Integer.parseInt(JOptionPane.showInputDialog("Enter Student ID"));
+        int search_notice = Integer.parseInt(JOptionPane.showInputDialog("Enter Notice ID"));
 
         Notice dao = new Notice();
         dao.get(search_notice);

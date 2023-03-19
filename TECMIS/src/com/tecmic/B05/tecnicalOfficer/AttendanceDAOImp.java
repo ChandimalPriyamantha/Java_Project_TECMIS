@@ -19,19 +19,19 @@ import javax.swing.JOptionPane;
 public class AttendanceDAOImp implements AttendanceDAO{
 
     @Override
-    public void save(Attendance attendance) {
+    public void save(Attendance attendence) {
         try{
             
             Connection con = TecmisDB.getConnection();
-            String sql = "INSERT INTO attendance(type,state,date,course_id,lecturer_id,hour,student_id) VALUES (?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO attendence(type,state,date,course_id,lecturer_id,hour,student_id) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1,attendance.getType());
-            ps.setString(2,attendance.getState());
-            ps.setString(3,attendance.getDate());
-            ps.setString(4,attendance.getCourse_id());
-            ps.setString(5,attendance.getLecturer_id());
-            ps.setInt(6, attendance.getHour());
-            ps.setString(7,attendance.getStudent_id());
+            ps.setString(1,attendence.getType());
+            ps.setString(2,attendence.getState());
+            ps.setString(3,attendence.getDate());
+            ps.setString(4,attendence.getCourse_id());
+            ps.setString(5,attendence.getLecturer_id());
+            ps.setInt(6, attendence.getHour());
+            ps.setString(7,attendence.getStudent_id());
             
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "SAVED!");
@@ -43,20 +43,20 @@ public class AttendanceDAOImp implements AttendanceDAO{
     }
 
     @Override
-    public void update(Attendance attendance) {
+    public void update(Attendance attendence) {
         
         try{
             
            Connection con = TecmisDB.getConnection();
-           String sql = "UPDATE attendance SET type=?,state=?,date=?,course_id=?,lecturer_id=?,hour=?,student_id=? WHERE attendence_id=?";
+           String sql = "UPDATE attendence SET type=?,state=?,date=?,course_id=?,lecturer_id=?,hour=?,student_id=? WHERE attendence_id=?";
            PreparedStatement ps = con.prepareStatement(sql);
-           ps.setString(1,attendance.getType());
-           ps.setString(2,attendance.getState());
-           ps.setString(3,attendance.getDate());
-           ps.setString(4,attendance.getCourse_id());
-           ps.setString(5,attendance.getLecturer_id());
-           ps.setInt(6, attendance.getHour());
-           ps.setString(7,attendance.getStudent_id());
+           ps.setString(1,attendence.getType());
+           ps.setString(2,attendence.getState());
+           ps.setString(3,attendence.getDate());
+           ps.setString(4,attendence.getCourse_id());
+           ps.setString(5,attendence.getLecturer_id());
+           ps.setInt(6, attendence.getHour());
+           ps.setString(7,attendence.getStudent_id());
            ps.executeUpdate();
            
            
@@ -69,13 +69,13 @@ public class AttendanceDAOImp implements AttendanceDAO{
     }
 
     @Override
-    public void delete(Attendance attendance) {
+    public void delete(Attendance attendence) {
         
         try{
            Connection con = TecmisDB.getConnection();
-           String sql = "DELETE FROM attendance WHERE attendence_id=?";
+           String sql = "DELETE FROM attendence WHERE attendence_id=?";
            PreparedStatement ps = con.prepareStatement(sql);
-           ps.setInt(1, attendance.getAttendence_id());
+           ps.setInt(1, attendence.getAttendance_id());
            ps.executeUpdate();
            JOptionPane.showMessageDialog(null, "DELETED!");
            
@@ -93,12 +93,12 @@ public class AttendanceDAOImp implements AttendanceDAO{
         Attendance atnd = new Attendance();
         try{
            Connection con = TecmisDB.getConnection();
-           String sql = "SELECT * FROM attendance WHERE attendence_id=?";
+           String sql = "SELECT * FROM attendence WHERE attendence_id=?";
            PreparedStatement ps = con.prepareStatement(sql);
            ps.setInt(1,attendence_id);
            ResultSet rs = ps.executeQuery();
            if(rs.next()){
-               atnd.setAttendence_id(rs.getInt("attendence_id"));
+               atnd.setAttendance_id(rs.getInt("attendence_id"));
                atnd.setType(rs.getString("type"));
                atnd.setState(rs.getString("state"));
                atnd.setDate(rs.getString("date"));
@@ -122,13 +122,13 @@ public class AttendanceDAOImp implements AttendanceDAO{
         try{
            
            Connection con = TecmisDB.getConnection();
-           String sql = "SELECT * FROM attendance";
+           String sql = "SELECT * FROM attendence";
            PreparedStatement ps = con.prepareStatement(sql);
            ResultSet rs = ps.executeQuery();
            
            while(rs.next()){
                Attendance atnd = new Attendance();
-               atnd.setAttendence_id(rs.getInt("attendence_id"));
+               atnd.setAttendance_id(rs.getInt("attendence_id"));
                atnd.setType(rs.getString("type"));
                atnd.setState(rs.getString("state"));
                atnd.setDate(rs.getString("date"));

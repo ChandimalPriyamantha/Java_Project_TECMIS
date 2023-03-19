@@ -280,7 +280,7 @@ public  class User {
                 user.setUserName(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
                 user.setEmail(rs.getString("email"));
-                user.setDepartmentID(rs.getString("department_department_id"));
+                user.setDepartmentID(rs.getString("department_id"));
                
                
                 
@@ -321,7 +321,7 @@ public  class User {
                 user.setUserName(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
                 user.setEmail(rs.getString("email"));
-                user.setDepartmentID(rs.getString("department_department_id"));
+                user.setDepartmentID(rs.getString("department_id"));
                
                
                 
@@ -371,7 +371,7 @@ public  class User {
                 setPassword(rs.getString("password"));
                 setEmail(rs.getString("email"));
                 setImagePathe(rs.getString("image_path"));
-                setDepartmentID(rs.getString("department_department_id"));
+                setDepartmentID(rs.getString("department_id"));
  
             }
             
@@ -404,7 +404,7 @@ public  class User {
                 setPassword(rs.getString("password"));
                 setEmail(rs.getString("email"));
                 setImagePathe(rs.getString("image_path"));
-                setDepartmentID(rs.getString("department_department_id"));
+                setDepartmentID(rs.getString("department_id"));
  
             }
             

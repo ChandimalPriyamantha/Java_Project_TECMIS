@@ -11,9 +11,9 @@ import java.util.List;
  */
 public interface AttendanceDAO {
     
-    public void save(Attendance attendance);
-    public void update(Attendance attendance);
-    public void delete(Attendance attendance);
+    public void save(Attendance attendence);
+    public void update(Attendance attendence);
+    public void delete(Attendance attendence);
     public Attendance get(int attendence_id);
     public List <Attendance> list();
     

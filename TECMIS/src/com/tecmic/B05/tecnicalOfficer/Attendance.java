@@ -18,11 +18,11 @@ public class Attendance {
     private int hour;
     private String student_id;
 
-    public int getAttendence_id() {
+    public int getAttendance_id() {
         return attendence_id;
     }
 
-    public void setAttendence_id(int attendence_id) {
+    public void setAttendance_id(int attendence_id) {
         this.attendence_id = attendence_id;
     }
 
