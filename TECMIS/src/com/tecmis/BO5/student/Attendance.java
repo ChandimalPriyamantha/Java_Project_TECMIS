@@ -96,8 +96,8 @@ public class Attendance
         List<Attendance> list = new ArrayList<Attendance>();
         try{
            
-           Connection con = TecmisDB.getConnection();
-           String sql = "SELECT * FROM attendance";
+           Connection con = StudentDBCon.Connect();
+           String sql = "SELECT * FROM attendence";
            PreparedStatement ps = con.prepareStatement(sql);
            ResultSet rs = ps.executeQuery();
            

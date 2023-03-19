@@ -4,7 +4,12 @@
  */
 package com.tecmis.BO5.student;
 
+import com.tecmic.B05.TecmisDB.TecmisDB;
 import com.tecmic.B05.TecmisView.TechmisView;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import com.tecmis.BO5.student.StudentView;
 
 /**
  *
@@ -18,6 +23,8 @@ public class StudentLoginForm extends javax.swing.JFrame {
     public StudentLoginForm() {
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -217,6 +224,7 @@ public class StudentLoginForm extends javax.swing.JFrame {
 
         StudentLoginImp sti = new StudentLoginImp();
         sti.Login(st);
+        
 
         txtUserName.setText("");
         txtPassword.setText("");

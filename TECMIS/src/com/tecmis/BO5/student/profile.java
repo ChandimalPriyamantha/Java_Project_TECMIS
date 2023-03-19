@@ -26,10 +26,13 @@ public class profile extends javax.swing.JInternalFrame {
    
     public profile() {
         initComponents();
+        Load("student");
+        
     }
     public void Load(String student){
 
-        User user = new User();
+       User user = new User();
+        //Student user = new Student();
         //List<User> list = user.list("technical_officer");
         
         Auth auth = Auth.getInstance();
@@ -102,7 +105,6 @@ public class profile extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         image_lbl = new javax.swing.JLabel();
         btnaddimg = new javax.swing.JButton();
-        lblimgpath = new javax.swing.JLabel();
         lblfname = new javax.swing.JLabel();
         lbllname = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -113,6 +115,7 @@ public class profile extends javax.swing.JInternalFrame {
         txtaddress = new javax.swing.JTextField();
         txtemail = new javax.swing.JTextField();
         txtmno = new javax.swing.JTextField();
+        lblimgpath = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setBorder(null);
@@ -140,8 +143,6 @@ public class profile extends javax.swing.JInternalFrame {
             }
         });
 
-        lblimgpath.setText("jLabel2");
-
         lblfname.setText("Fname");
 
         lbllname.setText("Lname");
@@ -161,13 +162,9 @@ public class profile extends javax.swing.JInternalFrame {
                         .addComponent(lblfname)
                         .addGap(18, 18, 18)
                         .addComponent(lbllname))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(76, 76, 76)
-                            .addComponent(lblimgpath))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(54, 54, 54)
-                            .addComponent(btnaddimg))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(btnaddimg)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -181,9 +178,7 @@ public class profile extends javax.swing.JInternalFrame {
                     .addComponent(lbllname))
                 .addGap(26, 26, 26)
                 .addComponent(btnaddimg)
-                .addGap(18, 18, 18)
-                .addComponent(lblimgpath)
-                .addGap(34, 34, 34))
+                .addGap(68, 68, 68))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
@@ -258,6 +253,9 @@ public class profile extends javax.swing.JInternalFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        lblimgpath.setForeground(new java.awt.Color(255, 255, 255));
+        lblimgpath.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -269,6 +267,10 @@ public class profile extends javax.swing.JInternalFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblimgpath)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -284,7 +286,9 @@ public class profile extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(lblimgpath)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -311,8 +315,8 @@ public class profile extends javax.swing.JInternalFrame {
 
         student.setLogingState("student");
 
-        student.setFirstName(lblfname.getText());
-        student.setLastName(lbllname.getText());
+        //student.setFirstName(lblfname.getText());
+        //student.setLastName(lbllname.getText());
         student.setAddress(txtaddress.getText());
         student.setPhoneNumner(txtmno.getText());
         student.setEmail(txtemail.getText());

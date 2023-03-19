@@ -88,7 +88,7 @@ public class Medical {
        List<Medical> list = new ArrayList<Medical>();
         try {
             Connection con = TecmisDB.getConnection();
-            String sql = "SELECT * FROM notice";
+            String sql = "SELECT * FROM medical";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
@@ -101,7 +101,7 @@ public class Medical {
                 medical.setSubject_code(rs.getString("subject_code"));
                 medical.setDescription(rs.getString("description"));
                 medical.setState(rs.getString("state"));
-                medical.setDepartment_id(rs.getString("department_id"));
+                medical.setDepartment_id(rs.getString("student_department_department_id"));
                 medical.setStudent_id(rs.getString("student_id"));
  
                 list.add(medical);

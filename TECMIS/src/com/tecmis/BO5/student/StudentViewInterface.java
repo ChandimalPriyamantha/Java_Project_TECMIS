@@ -13,7 +13,7 @@ public interface StudentViewInterface
     
     void LoadMedical ();
     void LoadCourse();
-    void LoadResults();
+    void LoadMarks();
     void LoadAttendance();
 
     
