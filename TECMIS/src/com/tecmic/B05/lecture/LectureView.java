@@ -4,7 +4,10 @@
  */
 package com.tecmic.B05.lecture;
 
+<<<<<<< HEAD
 import com.tecmic.B05.Medical.Medical;
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
 import com.tecmic.B05.TecmisDB.TecmisDB;
 import com.tecmic.B05.TecmisView.TechmisView;
 import com.tecmic.B05.admin.Admin;
@@ -41,8 +44,11 @@ public class LectureView extends javax.swing.JFrame {
         UserLoad("Student", "Student");
         Noticeload();
         btnLectureUpdate.setEnabled(false);
+<<<<<<< HEAD
         MedicalLoad();
         Download1.setEnabled(false);
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
     }
 
     /**
@@ -58,7 +64,10 @@ public class LectureView extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+<<<<<<< HEAD
         jLabel16 = new javax.swing.JLabel();
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -140,6 +149,7 @@ public class LectureView extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+<<<<<<< HEAD
         jPanel25 = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -161,6 +171,8 @@ public class LectureView extends javax.swing.JFrame {
         btnAdminDelete = new javax.swing.JButton();
         jButton51 = new javax.swing.JButton();
         jButton52 = new javax.swing.JButton();
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         jPanel6 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -170,7 +182,11 @@ public class LectureView extends javax.swing.JFrame {
         jPanel22 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
+<<<<<<< HEAD
         table_medical = new javax.swing.JTable();
+=======
+        table1 = new javax.swing.JTable();
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         jPanel23 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -190,9 +206,12 @@ public class LectureView extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         Serch1 = new javax.swing.JButton();
+<<<<<<< HEAD
         jButton50 = new javax.swing.JButton();
         Download1 = new javax.swing.JButton();
         student_id1 = new javax.swing.JTextField();
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         jPanel17 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
@@ -219,7 +238,11 @@ public class LectureView extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< HEAD
         jLabel1.setText("LECTURE");
+=======
+        jLabel1.setText("TECMIS | FACULTY OF TECHNOLOGY");
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
 
         jLabel17.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-back-arrow-50.png")); // NOI18N
         jLabel17.setText("jLabel17");
@@ -230,10 +253,13 @@ public class LectureView extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("TECMIS | FACULTY OF TECHNOLOGY");
 
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -241,6 +267,7 @@ public class LectureView extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -249,11 +276,17 @@ public class LectureView extends javax.swing.JFrame {
                     .addGap(94, 94, 94)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(505, Short.MAX_VALUE)))
+=======
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -263,6 +296,16 @@ public class LectureView extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(16, 16, 16)))
+=======
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         );
 
         jTabbedPane1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -443,7 +486,11 @@ public class LectureView extends javax.swing.JFrame {
 
         btnLectureUpdate1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLectureUpdate1.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-available-updates-24.png")); // NOI18N
+<<<<<<< HEAD
         btnLectureUpdate1.setText("Refresh");
+=======
+        btnLectureUpdate1.setText("Refash");
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         btnLectureUpdate1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLectureUpdate1ActionPerformed(evt);
@@ -606,8 +653,13 @@ public class LectureView extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 514, Short.MAX_VALUE))
+=======
+                .addGap(0, 0, 0)
+                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 473, Short.MAX_VALUE))
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         );
 
         lecture_image_add.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -644,7 +696,11 @@ public class LectureView extends javax.swing.JFrame {
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lecture_image_add)))
+<<<<<<< HEAD
                 .addContainerGap(35, Short.MAX_VALUE))
+=======
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         );
 
         jTabbedPane1.addTab("Account", new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-user-24.png"), jPanel3); // NOI18N
@@ -1002,6 +1058,7 @@ public class LectureView extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Student Details", new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-more-details-30.png"), jPanel4); // NOI18N
 
+<<<<<<< HEAD
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel26.setBackground(new java.awt.Color(0, 153, 153));
@@ -1230,10 +1287,13 @@ public class LectureView extends javax.swing.JFrame {
                 .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1245,6 +1305,13 @@ public class LectureView extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
+=======
+            .addGap(0, 1105, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 595, Short.MAX_VALUE)
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         );
 
         jTabbedPane1.addTab("Course Materials", jPanel5);
@@ -1257,7 +1324,11 @@ public class LectureView extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGap(0, 611, Short.MAX_VALUE)
+=======
+            .addGap(0, 595, Short.MAX_VALUE)
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         );
 
         jTabbedPane1.addTab("Upload Marks", jPanel6);
@@ -1270,7 +1341,11 @@ public class LectureView extends javax.swing.JFrame {
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGap(0, 611, Short.MAX_VALUE)
+=======
+            .addGap(0, 595, Short.MAX_VALUE)
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         );
 
         jTabbedPane1.addTab("Student Eligibility", jPanel11);
@@ -1283,7 +1358,11 @@ public class LectureView extends javax.swing.JFrame {
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGap(0, 611, Short.MAX_VALUE)
+=======
+            .addGap(0, 595, Short.MAX_VALUE)
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         );
 
         jTabbedPane1.addTab("Student Marks & GPA", jPanel14);
@@ -1296,7 +1375,11 @@ public class LectureView extends javax.swing.JFrame {
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGap(0, 611, Short.MAX_VALUE)
+=======
+            .addGap(0, 595, Short.MAX_VALUE)
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         );
 
         jTabbedPane1.addTab("Attendance", jPanel15);
@@ -1328,7 +1411,11 @@ public class LectureView extends javax.swing.JFrame {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
+<<<<<<< HEAD
         table_medical.setModel(new javax.swing.table.DefaultTableModel(
+=======
+        table1.setModel(new javax.swing.table.DefaultTableModel(
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -1339,6 +1426,7 @@ public class LectureView extends javax.swing.JFrame {
                 "Medical ID", "Date", "State", "Description", "Department ID", "Subject Code", "Student ID"
             }
         ));
+<<<<<<< HEAD
         table_medical.setGridColor(new java.awt.Color(0, 153, 153));
         table_medical.setSelectionBackground(new java.awt.Color(45, 182, 171));
         jScrollPane8.setViewportView(table_medical);
@@ -1347,6 +1435,11 @@ public class LectureView extends javax.swing.JFrame {
             table_medical.getColumnModel().getColumn(5).setHeaderValue("Subject Code");
             table_medical.getColumnModel().getColumn(6).setHeaderValue("Student ID");
         }
+=======
+        table1.setGridColor(new java.awt.Color(0, 153, 153));
+        table1.setSelectionBackground(new java.awt.Color(45, 182, 171));
+        jScrollPane8.setViewportView(table1);
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
 
         jPanel24.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -1514,6 +1607,7 @@ public class LectureView extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jButton50.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton50.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-clear-symbol-30.png")); // NOI18N
         jButton50.setText("Clear");
@@ -1535,6 +1629,8 @@ public class LectureView extends javax.swing.JFrame {
         student_id1.setForeground(new java.awt.Color(255, 255, 255));
         student_id1.setBorder(null);
 
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
@@ -1543,12 +1639,15 @@ public class LectureView extends javax.swing.JFrame {
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(Serch1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addGap(38, 38, 38)
                 .addComponent(jButton50, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(Download1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addComponent(student_id1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
@@ -1557,12 +1656,17 @@ public class LectureView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Serch1)
                     .addComponent(jButton50)
                     .addComponent(Download1)
                     .addComponent(student_id1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
+=======
+                .addComponent(Serch1)
+                .addContainerGap(12, Short.MAX_VALUE))
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
         );
 
         jTabbedPane1.addTab("Medical", new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-doctors-bag-30.png"), jPanel16); // NOI18N
@@ -1651,8 +1755,13 @@ public class LectureView extends javax.swing.JFrame {
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addContainerGap(49, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                .addContainerGap(54, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
                 .addContainerGap())
         );
 
@@ -1857,6 +1966,7 @@ public class LectureView extends javax.swing.JFrame {
             String date_time = rs.getDate_Time();
             String discription = rs.getDescription();
             DFT.addRow(new Object[]{notice_id,title,date_time,discription});
+<<<<<<< HEAD
         } 
         
       
@@ -1878,6 +1988,11 @@ public class LectureView extends javax.swing.JFrame {
       
       
       }
+=======
+        }   
+    
+    }
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
     private void btnLectureUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLectureUpdateActionPerformed
         // TODO add your handling code here:
         Lecture lecture = new Lecture();
@@ -2216,6 +2331,7 @@ public class LectureView extends javax.swing.JFrame {
 
     private void Serch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Serch1ActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         
        String search_medical =JOptionPane.showInputDialog("Enter Medical ID");
 
@@ -2465,6 +2581,10 @@ public class LectureView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton52ActionPerformed
 
+=======
+    }//GEN-LAST:event_Serch1ActionPerformed
+
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
     /**
      * @param args the command line arguments
      */
@@ -2502,7 +2622,10 @@ public class LectureView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Download;
+<<<<<<< HEAD
     private javax.swing.JButton Download1;
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
     private javax.swing.JButton Serch;
     private javax.swing.JButton Serch1;
     private javax.swing.JTextField User_FirstName1;
@@ -2516,9 +2639,12 @@ public class LectureView extends javax.swing.JFrame {
     private javax.swing.JTextField User_NIC1;
     private javax.swing.JTextField User_NIC2;
     private javax.swing.JTextArea body;
+<<<<<<< HEAD
     private javax.swing.JButton btnAdminDelete;
     private javax.swing.JButton btnAdminSave;
     private javax.swing.JButton btnAdminUpload;
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
     private javax.swing.JButton btnLectureUpdate;
     private javax.swing.JButton btnLectureUpdate1;
     private javax.swing.JTextField date;
@@ -2536,9 +2662,12 @@ public class LectureView extends javax.swing.JFrame {
     private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton48;
     private javax.swing.JButton jButton49;
+<<<<<<< HEAD
     private javax.swing.JButton jButton50;
     private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton52;
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -2556,6 +2685,7 @@ public class LectureView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -2566,6 +2696,10 @@ public class LectureView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+=======
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2606,6 +2740,7 @@ public class LectureView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
+<<<<<<< HEAD
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
@@ -2613,6 +2748,11 @@ public class LectureView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
+=======
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
+    private javax.swing.JPanel jPanel3;
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -2620,27 +2760,40 @@ public class LectureView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+<<<<<<< HEAD
     private javax.swing.JScrollPane jScrollPane10;
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
+<<<<<<< HEAD
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
     private javax.swing.JButton lecture_image_add;
     private javax.swing.JTextField medical_id;
     private javax.swing.JTextField state;
     private javax.swing.JTextField student_id;
+<<<<<<< HEAD
     private javax.swing.JTextField student_id1;
+=======
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
     private javax.swing.JLabel student_image_path;
     private javax.swing.JTextField student_level;
     private javax.swing.JTable student_table;
     private javax.swing.JTextField subject_code;
     private javax.swing.JTable table;
+<<<<<<< HEAD
     private javax.swing.JTable table_medical;
     private javax.swing.JTable table_medical1;
+=======
+    private javax.swing.JTable table1;
+>>>>>>> a8d874b4593de0793dd0ea09b7a35ec842b731ff
     private javax.swing.JLabel title;
     private javax.swing.JTextField user_BOD1;
     private javax.swing.JTextField user_BOD2;
