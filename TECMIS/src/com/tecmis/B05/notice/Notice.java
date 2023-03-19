@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author Vivobook
  */
-public class StudentNotice {
+public class Notice {
     
     private String NoticeID;
     private String Title;
@@ -67,9 +67,9 @@ public class StudentNotice {
         
     }
     
-    public List<StudentNotice> list() {
+    public List<Notice> list() {
         
-       List<StudentNotice> list = new ArrayList<StudentNotice>();
+       List<Notice> list = new ArrayList<Notice>();
         try {
             Connection con = TecmisDB.getConnection();
             String sql = "SELECT * FROM notice";
@@ -79,7 +79,7 @@ public class StudentNotice {
             
             
             while(rs.next()){
-                StudentNotice notice = new StudentNotice();
+                Notice notice = new Notice();
                 notice.setNoticeID(rs.getString("notice_id"));
                 notice.setTitle(rs.getString("title"));
                 notice.setDate_Time(rs.getString("date_and_time"));
@@ -98,8 +98,8 @@ public class StudentNotice {
     
     }
     
-      public StudentNotice get(int id) {
-        StudentNotice notice = new StudentNotice();
+      public Notice get(int id) {
+        Notice notice = new Notice();
         try {
             Connection con = TecmisDB.getConnection();
             String sql = "SELECT * FROM notice WHERE notice_id=?";

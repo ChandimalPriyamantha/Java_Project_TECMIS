@@ -6,7 +6,7 @@ package com.tecmis.BO5.student;
 
 import com.tecmis.BO5.student.Student;
 import com.tecmic.B05.TecmisDB.TecmisDB;
-import com.tecmis.B05.notice.StudentNotice;
+import com.tecmis.B05.notice.Notice;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

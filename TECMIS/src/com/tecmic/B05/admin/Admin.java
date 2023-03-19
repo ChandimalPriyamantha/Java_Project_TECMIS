@@ -7,7 +7,7 @@ package com.tecmic.B05.admin;
 import com.tecmic.B05.TecmisDB.TecmisDB;
 import com.tecmic.B05.user.User;
 import com.tecmis.B05.course.Course;
-import com.tecmis.B05.notice.StudentNotice;
+import com.tecmis.B05.notice.Notice;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.sql.Connection;
@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class Admin extends User{
     
-   public void CrateNotice(StudentNotice notice ){
+   public void CrateNotice(Notice notice ){
       
         try {
             Connection con =  TecmisDB.getConnection();
@@ -44,7 +44,7 @@ public class Admin extends User{
    }
    
    
-   public void EditNotice(StudentNotice notice){
+   public void EditNotice(Notice notice){
        
    
        try {
@@ -69,7 +69,7 @@ public class Admin extends User{
    }
    
    
-   public void deleteNotice(StudentNotice notice){
+   public void deleteNotice(Notice notice){
        
        try {
           
@@ -94,7 +94,7 @@ public class Admin extends User{
             PreparedStatement ps = con.prepareStatement(sql);
             
             ps.setString(1, course.getCourseID());
-            ps.setInt(2, course.getLevel());
+            ps.setString(2, course.getLevel());
             ps.setInt(3, course.getCredit());
             ps.setString(4, course.getCourseName());
             ps.setString(5, course.getCourseType());
@@ -117,7 +117,7 @@ public class Admin extends User{
             PreparedStatement ps = con.prepareStatement(sql);
             
             ps.setString(1, course.getCourseID());
-            ps.setInt(2, course.getLevel());
+            ps.setString(2, course.getLevel());
             ps.setInt(3, course.getCredit());
             ps.setString(4, course.getCourseName());
             ps.setString(5, course.getCourseType());

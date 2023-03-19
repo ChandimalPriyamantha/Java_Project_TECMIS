@@ -4,7 +4,7 @@
  */
 package com.tecmis.BO5.student;
 
-import com.tecmis.B05.notice.StudentNotice;
+import com.tecmis.B05.notice.Notice;
 import java.awt.Desktop;
 import java.io.File;
 import java.util.List;
@@ -25,11 +25,11 @@ public class NoticeForm extends javax.swing.JInternalFrame {
         NoticeLoad();
     }
     public void NoticeLoad(){
-        StudentNotice nt = new StudentNotice();
-        List<StudentNotice> list = nt.list();
+        Notice nt = new Notice();
+        List<Notice> list = nt.list();
         DefaultTableModel dt = (DefaultTableModel) Noticetbl.getModel();
         dt.setRowCount(0);
-        for(StudentNotice rs:list){
+        for(Notice rs:list){
             String id = rs.getNoticeID();
             //String fp = rs.getFilePath();
             String title = rs.getTitle();
@@ -204,7 +204,7 @@ public class NoticeForm extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        StudentNotice notice = new StudentNotice();
+        Notice notice = new Notice();
         if(lblfilepath.getText() != "File Path"){
             try{
                 File file = new File(lblfilepath.getText());
@@ -240,7 +240,7 @@ public class NoticeForm extends javax.swing.JInternalFrame {
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
         int search_notice = Integer.parseInt(JOptionPane.showInputDialog("Enter Student ID"));
 
-        StudentNotice dao = new StudentNotice();
+        Notice dao = new Notice();
         dao.get(search_notice);
 
         //title.setText(dao.getNoticeID());

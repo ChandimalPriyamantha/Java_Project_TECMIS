@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tecmis.B05.notice;
+//package com.tecmis.B05.notice;
 
 import com.tecmic.B05.TecmisDB.TecmisDB;
 import java.sql.Connection;
