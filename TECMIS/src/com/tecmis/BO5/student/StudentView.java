@@ -156,11 +156,8 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     public void LoadAttendance()
     {   
         Attendance att=new Attendance();
-        String sub=lblsubcode.getText();
-        
-        Auth auth = Auth.getInstance();
-        String usr = auth.getUsername();
-   
+        //String sub=lblsubcode.getText();
+       
       
         List<Attendance> list=att.list();
         DefaultTableModel dt = (DefaultTableModel)attenTbl.getModel();
@@ -176,10 +173,9 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
               String lecturer_id=rs.getLecturer_id();
               int  hour=rs.getHour();
              
-            //if(sub==course_id && usr==student_id)
-            //{
+        
              dt.addRow(new Object[]{date,hour,type,state});
-           // }
+         
            }
          }
     

@@ -4,6 +4,7 @@
  */
 package com.tecmis.BO5.student;
 
+import com.tecmis.BO5.student.Student;
 import com.tecmic.B05.TecmisDB.TecmisDB;
 import com.tecmis.B05.notice.Notice;
 import java.sql.Connection;
@@ -25,6 +26,10 @@ public class Course {
     private String courseType;
     private String level;
     private String departmentID;
+    
+    Auth auth = Auth.getInstance();
+    String usr = auth.getUsername();
+    
 
     public String getDepartmentID() {
         return departmentID;
@@ -75,15 +80,64 @@ public class Course {
     }
     
     
+    
+   
+     public String studentDetails(String user)
+    {
+       Student s=new Student();
+        try
+        {
+           
+            Connection con = TecmisDB.getConnection();
+            String sql = "SELECT * FROM student where username='"+ user + "'";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                s.setUserID(rs.getString("id"));
+                s.setNIC(rs.getString("nic"));
+                s.setFirstName(rs.getString("fname"));
+                s.setMiddleName(rs.getString("mname"));
+                s.setLastName(rs.getString("lname"));
+                s.setBirthDate(rs.getString("birth_date"));
+                s.setAddress(rs.getString("address"));
+                s.setSex(rs.getString("sex"));
+                s.setLevel(rs.getString("level"));
+                s.setPhoneNumner(rs.getString("phone_no"));
+                s.setUserName(rs.getString("username"));
+                s.setPassword(rs.getString("password"));
+                s.setEmail(rs.getString("email"));
+                s.setImagePathe(rs.getString("image_path"));
+                s.setLevel(rs.getString("level"));
+                s.setDepartmentID(rs.getString("department_id"));
+ 
+            }
+           
+           
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+         String StLevel=s.getLevel();
+         
+        return StLevel;
+    }
+     
+     
     public List<Course> list() {
         
+             
+
+            
        List<Course> list = new ArrayList<Course>();
         try {
-            Auth auth = Auth.getInstance();
-            String usr = auth.getUsername();
-            Connection con = TecmisDB.getConnection();
-            
+        
+           Connection con = TecmisDB.getConnection(); 
           
+           String s_level=studentDetails(usr);
+            System.out.println(s_level);
             String sql = "SELECT * FROM course";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -99,7 +153,7 @@ public class Course {
                 course.setCourseType(rs.getString("course_type"));
                 course.setDepartmentID(rs.getString("department_department_id"));
                 
- 
+                
                 list.add( course);
             }
             
@@ -114,6 +168,10 @@ public class Course {
     
       public  Course get(String id) {
         Course course = new Course();
+        Auth auth = Auth.getInstance();
+      String usr = auth.getUsername();
+      
+      
         try {
             Connection con = TecmisDB.getConnection();
             String sql = "SELECT * FROM course WHERE course_id=?";

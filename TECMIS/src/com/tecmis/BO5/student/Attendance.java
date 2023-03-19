@@ -26,6 +26,11 @@ public class Attendance
     private String course_id;
     private String lecturer_id;
     private int hour;
+    
+    
+    Auth auth = Auth.getInstance();
+    String usr = auth.getUsername();
+    private String user=usr;
 
     public String getStudent_id() {
         return student_id;
@@ -90,6 +95,9 @@ public class Attendance
     public void setHour(int hour) {
         this.hour = hour;
     }
+
+   
+    
     
     public List<Attendance> list() 
     {
@@ -97,7 +105,7 @@ public class Attendance
         try{
            
            Connection con = StudentDBCon.Connect();
-           String sql = "SELECT * FROM attendence";
+           String sql = "SELECT * FROM attendence where student_id='"+user+"'";
            PreparedStatement ps = con.prepareStatement(sql);
            ResultSet rs = ps.executeQuery();
            

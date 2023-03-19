@@ -20,8 +20,26 @@ import javax.swing.JOptionPane;
 public class CourseMaterials {
     
     private int Material_ID;
+    private String Material_name;
     private String coure_code;
     private String filePath;
+    private String course_department_department_id;
+
+    public String getCourse_department_department_id() {
+        return course_department_department_id;
+    }
+
+    public void setCourse_department_department_id(String course_department_department_id) {
+        this.course_department_department_id = course_department_department_id;
+    }
+
+    public String getMaterial_name() {
+        return Material_name;
+    }
+
+    public void setMaterial_name(String Material_name) {
+        this.Material_name = Material_name;
+    }
 
     public int getMaterial_ID() {
         return Material_ID;
@@ -55,16 +73,17 @@ public class CourseMaterials {
        try
        {
             Connection con = TecmisDB.getConnection();
-            String sql = "SELECT * FROM coursematerials";
+            String sql = "SELECT * FROM lecture_matireal";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
                            
              while(rs.next()){  
                CourseMaterials cm=new CourseMaterials();
-               cm.setMaterial_ID(rs.getInt("Material_ID"));
-               cm.setCoure_code(rs.getString("course_code"));
-               cm.setFilePath(rs.getString("filePath"));
-               
+               cm.setMaterial_ID(rs.getInt("	lecture_matireal_id"));
+               cm.setMaterial_name(rs.getString("name"));
+               cm.setCoure_code(rs.getString("	course_id"));
+               cm.setFilePath(rs.getString("file_path"));
+               cm.setCourse_department_department_id(rs.getString("course_department_department_id "));
                
                list.add( cm);
             }
@@ -85,7 +104,7 @@ public class CourseMaterials {
             CourseMaterials cm =new CourseMaterials();
         try {
             Connection con = TecmisDB.getConnection();
-            String sql = "SELECT * FROM coursematerials WHERE course_code=?";
+            String sql = "SELECT * FROM lecture_matireal WHERE course_id=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
@@ -95,7 +114,12 @@ public class CourseMaterials {
                cm.setMaterial_ID(rs.getInt("Material_ID"));
                cm.setCoure_code(rs.getString("course_code"));
                cm.setFilePath(rs.getString("filePath"));
- 
+                cm.setMaterial_ID(rs.getInt("lecture_matireal_id"));
+               cm.setMaterial_name(rs.getString("name"));
+               cm.setCoure_code(rs.getString("	course_id"));
+               cm.setFilePath(rs.getString("file_path"));
+               cm.setCourse_department_department_id(rs.getString("course_department_department_id "));
+               
             }
             
         } catch (Exception e) {

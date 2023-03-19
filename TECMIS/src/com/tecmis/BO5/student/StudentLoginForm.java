@@ -226,8 +226,11 @@ public class StudentLoginForm extends javax.swing.JFrame {
         sti.Login(st);
         
 
+
         txtUserName.setText("");
         txtPassword.setText("");
+        
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked

@@ -20,71 +20,14 @@ import javax.swing.JOptionPane;
  */
 public class Student extends User
 {
+    
+    
 
-    public Student() {
-        
-       Auth auth = Auth.getInstance();
-       String usr = auth.getUsername();
-       studentDetails(usr);
-       
-    }
-    
-    
-     public void  studentDetails(String uname)
-    {
-       Student s=new Student();
-        try
-        {
-           
-            Connection con = TecmisDB.getConnection();
-            String sql = "SELECT * FROM student where username='"+ uname + "'";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            
-            if(rs.next()){
-                
-                s.setUserID(rs.getString("id"));
-                s.setNIC(rs.getString("nic"));
-                s.setFirstName(rs.getString("fname"));
-                s.setMiddleName(rs.getString("mname"));
-                s.setLastName(rs.getString("lname"));
-                s.setBirthDate(rs.getString("birth_date"));
-                s.setAddress(rs.getString("address"));
-                s.setSex(rs.getString("sex"));
-                s.setLevel(rs.getString("level"));
-                s.setPhoneNumner(rs.getString("phone_no"));
-                s.setUserName(rs.getString("username"));
-                s.setPassword(rs.getString("password"));
-                s.setEmail(rs.getString("email"));
-                s.setImagePathe(rs.getString("image_path"));
-                s.setLevel(rs.getString("level"));
-                s.setDepartmentID(rs.getString("department_id"));
- 
-            }
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-    }
     
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+     
     
     
     
