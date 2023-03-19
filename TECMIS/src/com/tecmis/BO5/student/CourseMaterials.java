@@ -65,43 +65,14 @@ public class CourseMaterials {
         this.filePath = filePath;
     }
     
-     public List<CourseMaterials> list()
-     {
-       List<CourseMaterials> list = new ArrayList<CourseMaterials>();
-       
-       
-       try
-       {
-            Connection con = TecmisDB.getConnection();
-            String sql = "SELECT * FROM lecture_matireal";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-                           
-             while(rs.next()){  
-               CourseMaterials cm=new CourseMaterials();
-               cm.setMaterial_ID(rs.getInt("	lecture_matireal_id"));
-               cm.setMaterial_name(rs.getString("name"));
-               cm.setCoure_code(rs.getString("	course_id"));
-               cm.setFilePath(rs.getString("file_path"));
-               cm.setCourse_department_department_id(rs.getString("course_department_department_id "));
-               
-               list.add( cm);
-            }
-            }catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-        
-        
-        return list;
-    }
+ 
     
      
      
      
         public  CourseMaterials get(String id) {
         
-            CourseMaterials cm =new CourseMaterials();
+        CourseMaterials cm =new CourseMaterials();
         try {
             Connection con = TecmisDB.getConnection();
             String sql = "SELECT course_code,name,filePath FROM lecture_matireal WHERE course_id=?";

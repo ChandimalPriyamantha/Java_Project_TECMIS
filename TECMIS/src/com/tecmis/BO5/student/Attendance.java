@@ -104,7 +104,7 @@ public class Attendance
         List<Attendance> list = new ArrayList<Attendance>();
         try{
            
-           Connection con = StudentDBCon.Connect();
+           Connection con = TecmisDB.getConnection();
            String sql = "SELECT * FROM attendence where student_id='"+user+"'";
            PreparedStatement ps = con.prepareStatement(sql);
            ResultSet rs = ps.executeQuery();

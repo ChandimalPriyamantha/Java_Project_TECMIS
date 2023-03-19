@@ -4,6 +4,7 @@
  */
 package com.tecmis.BO5.student;
 
+import com.tecmic.B05.TecmisDB.TecmisDB;
 import com.tecmic.B05.user.User;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -68,7 +69,7 @@ public class profile extends javax.swing.JInternalFrame {
     {
         try
         {
-        Connection con=StudentDBCon.Connect();
+        Connection con=TecmisDB.getConnection();
         String sql="UPDATE student SET address=? ,phone_no=? ,email=? WHERE id='"+id+"'";
         PreparedStatement ps=con.prepareStatement(sql);
         ps.setString(1,students.getAddress());
