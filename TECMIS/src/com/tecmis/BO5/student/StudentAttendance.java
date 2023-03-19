@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author ACER
  */
-public class Attendance
+public class StudentAttendance
 {
     private String student_id;
     private int attendence_id;
@@ -99,9 +99,9 @@ public class Attendance
    
     
     
-    public List<Attendance> list() 
+    public List<StudentAttendance> list() 
     {
-        List<Attendance> list = new ArrayList<Attendance>();
+        List<StudentAttendance> list = new ArrayList<StudentAttendance>();
         try{
            
            Connection con = TecmisDB.getConnection();
@@ -110,7 +110,7 @@ public class Attendance
            ResultSet rs = ps.executeQuery();
            
            while(rs.next()){
-               Attendance atnd = new Attendance();
+               StudentAttendance atnd = new StudentAttendance();
                atnd.setAttendence_id(rs.getInt("attendence_id"));
                atnd.setType(rs.getString("type"));
                atnd.setState(rs.getString("state"));

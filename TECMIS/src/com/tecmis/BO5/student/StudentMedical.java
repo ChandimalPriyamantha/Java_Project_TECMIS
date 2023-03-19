@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author ACER
  */
-public class Medical {
+public class StudentMedical {
     private int medical_id;
     private String date;
     private String state;
@@ -86,9 +86,9 @@ public class Medical {
         this.student_id = student_id;
     }
     
-    public List<Medical> list() {
+    public List<StudentMedical> list() {
         
-       List<Medical> list = new ArrayList<Medical>();
+       List<StudentMedical> list = new ArrayList<StudentMedical>();
         try {
             Connection con = TecmisDB.getConnection();
             String sql = "SELECT * FROM medical where student_id='"+usr+"'";
@@ -98,7 +98,7 @@ public class Medical {
             
             
             while(rs.next()){
-                Medical medical = new Medical();
+                StudentMedical medical = new StudentMedical();
                 medical.setMedical_id(rs.getInt("medical_id"));
                 medical.setDate(rs.getString("date"));
                 medical.setSubject_code(rs.getString("subject_code"));

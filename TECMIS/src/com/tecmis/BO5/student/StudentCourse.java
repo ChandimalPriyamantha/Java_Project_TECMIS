@@ -6,7 +6,7 @@ package com.tecmis.BO5.student;
 
 import com.tecmis.BO5.student.Student;
 import com.tecmic.B05.TecmisDB.TecmisDB;
-import com.tecmis.B05.notice.Notice;
+import com.tecmis.B05.notice.StudentNotice;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author Vivobook
  */
-public class Course {
+public class StudentCourse {
     
     private String courseID;
     private String courseName;
@@ -82,9 +82,9 @@ public class Course {
     
     
      
-    public List<Course> list() {
+    public List<StudentCourse> list() {
            
-       List<Course> list = new ArrayList<Course>();
+       List<StudentCourse> list = new ArrayList<StudentCourse>();
         try {
         
            Connection con = TecmisDB.getConnection(); 
@@ -97,7 +97,7 @@ public class Course {
             
             
             while(rs.next()){
-                Course course= new Course();
+                StudentCourse course= new StudentCourse();
                 course.setCourseID(rs.getString("course_id"));
                 course.setLevel(rs.getString("level"));
                 course.setCredit(rs.getInt("credit"));
@@ -118,8 +118,8 @@ public class Course {
     
     }
     
-      public  Course get(String id) {
-        Course course = new Course();
+      public  StudentCourse get(String id) {
+        StudentCourse course = new StudentCourse();
        
         try {
             Connection con = TecmisDB.getConnection();

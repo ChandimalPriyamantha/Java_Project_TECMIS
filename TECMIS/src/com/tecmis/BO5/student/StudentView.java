@@ -5,7 +5,7 @@
 package com.tecmis.BO5.student;
 
 import com.tecmic.B05.TecmisDB.TecmisDB;
-import com.tecmis.B05.notice.Notice;
+import com.tecmis.B05.notice.StudentNotice;
 import com.tecmis.B05.course.Course;
 import com.tecmis.B05.course.CourseMaterials;
 import com.tecmis.BO5.student.Student;
@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
-import com.tecmis.B05.notice.Notice;
+import com.tecmis.B05.notice.StudentNotice;
 import java.awt.Desktop;
 import java.io.File;
 import java.util.ArrayList;
@@ -48,14 +48,14 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     
     
     public void LoadMedical (){
-        Medical md = new Medical();
+        StudentMedical md = new StudentMedical();
         
         
-        List<Medical> list = md.list();
+        List<StudentMedical> list = md.list();
         
         DefaultTableModel dt = (DefaultTableModel) Meditbl.getModel();
         dt.setRowCount(0);
-        for(Medical rs:list){
+        for(StudentMedical rs:list){
             int id = rs.getMedical_id();
             String date = rs.getDate();
             String state = rs.getState();
@@ -111,12 +111,12 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     
     public void LoadMarks()
     {
-        marks Stmark=new marks();
-        List<marks> list=Stmark.list();
+        Studentmarks Stmark=new Studentmarks();
+        List<Studentmarks> list=Stmark.list();
      
         DefaultTableModel dt = (DefaultTableModel)resultTbl.getModel();   
          dt.setRowCount(0);
-         for(marks rs:list)
+         for(Studentmarks rs:list)
          {
               int mark_id= rs.getMark_id();
               String grade=  rs.getGrade();
@@ -142,14 +142,14 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     
     public void LoadAttendance()
     {   
-        Attendance att=new Attendance();
+        StudentAttendance att=new StudentAttendance();
         //String sub=lblsubcode.getText();
        
       
-        List<Attendance> list=att.list();
+        List<StudentAttendance> list=att.list();
         DefaultTableModel dt = (DefaultTableModel)attenTbl.getModel();
          dt.setRowCount(0);
-         for(Attendance rs:list)
+         for(StudentAttendance rs:list)
          {
               String student_id=rs.getStudent_id();
               int  attId=rs.getAttendence_id();
@@ -987,8 +987,8 @@ public class StudentView extends javax.swing.JFrame implements StudentViewInterf
     }//GEN-LAST:event_resultTblAncestorAdded
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        profile p;
-        p = new profile();
+        Studentprofile p;
+        p = new Studentprofile();
         ProfilePane.add(p).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

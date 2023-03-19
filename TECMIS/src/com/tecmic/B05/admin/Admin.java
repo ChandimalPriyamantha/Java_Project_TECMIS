@@ -7,7 +7,7 @@ package com.tecmic.B05.admin;
 import com.tecmic.B05.TecmisDB.TecmisDB;
 import com.tecmic.B05.user.User;
 import com.tecmis.B05.course.Course;
-import com.tecmis.B05.notice.Notice;
+import com.tecmis.B05.notice.StudentNotice;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.sql.Connection;
@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class Admin extends User{
     
-   public void CrateNotice(Notice notice ){
+   public void CrateNotice(StudentNotice notice ){
       
         try {
             Connection con =  TecmisDB.getConnection();
@@ -44,7 +44,7 @@ public class Admin extends User{
    }
    
    
-   public void EditNotice(Notice notice){
+   public void EditNotice(StudentNotice notice){
        
    
        try {
@@ -69,7 +69,7 @@ public class Admin extends User{
    }
    
    
-   public void deleteNotice(Notice notice){
+   public void deleteNotice(StudentNotice notice){
        
        try {
           

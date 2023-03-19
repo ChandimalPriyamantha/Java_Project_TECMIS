@@ -6,7 +6,7 @@ package com.tecmic.B05.admin;
 
 import com.tecmic.B05.user.User;
 import com.tecmis.B05.course.Course;
-import com.tecmis.B05.notice.Notice;
+import com.tecmis.B05.notice.StudentNotice;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
@@ -2332,11 +2332,11 @@ public class AdminForm extends javax.swing.JFrame {
          
     public void Noticeload(){
         
-        Notice notice = new Notice();
-        List<Notice> list = notice.list();
+        StudentNotice notice = new StudentNotice();
+        List<StudentNotice> list = notice.list();
         DefaultTableModel DFT = (DefaultTableModel) table.getModel();
         DFT.setRowCount(0);
-        for(Notice rs: list)
+        for(StudentNotice rs: list)
         {
             String notice_id = rs.getNoticeID();
             String title = rs.getTitle();
@@ -2447,7 +2447,7 @@ public class AdminForm extends javax.swing.JFrame {
         
         
         
-        Notice notice = new Notice();
+        StudentNotice notice = new StudentNotice();
         notice.setFilePath(file_path);
         notice.setTitle(title);
         notice.setDescription(body);
@@ -2483,7 +2483,7 @@ public class AdminForm extends javax.swing.JFrame {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
         LocalDateTime now = LocalDateTime.now(); 
         
-        Notice notice = new Notice();
+        StudentNotice notice = new StudentNotice();
            
         String file_path = txtpath.getText();
         String title =  txtTitle.getText();
@@ -2512,7 +2512,7 @@ public class AdminForm extends javax.swing.JFrame {
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         // TODO add your handling code here:
-       Notice notice = new Notice();
+       StudentNotice notice = new StudentNotice();
        
        notice.setNoticeID(String.valueOf(search_notice));
        
@@ -2540,7 +2540,7 @@ public class AdminForm extends javax.swing.JFrame {
         
         search_notice = Integer.parseInt(JOptionPane.showInputDialog("Enter Student ID"));
 
-        Notice dao = new Notice();
+        StudentNotice dao = new StudentNotice();
         dao.get(search_notice);
 
         txtID.setText(dao.getNoticeID());

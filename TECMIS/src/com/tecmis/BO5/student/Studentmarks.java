@@ -5,7 +5,7 @@
 package com.tecmis.BO5.student;
 
 import com.tecmic.B05.TecmisDB.TecmisDB;
-import com.tecmis.B05.notice.Notice;
+import com.tecmis.B05.notice.StudentNotice;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author ACER
  */
-public class marks {
+public class Studentmarks {
     
     private int mark_id;
     private String grade;
@@ -140,9 +140,9 @@ public class marks {
         this.student_department_department_id = student_department_department_id;
     }
     
-    public List<marks> list() {
+    public List<Studentmarks> list() {
         
-       List<marks> list = new ArrayList<marks>();
+       List<Studentmarks> list = new ArrayList<Studentmarks>();
         try {
             Connection con = TecmisDB.getConnection();
             String sql = "SELECT * FROM mark where student_id='"+usr+"'";
@@ -150,7 +150,7 @@ public class marks {
             ResultSet rs = ps.executeQuery();
      
             while(rs.next()){
-                marks Stmark = new marks();
+                Studentmarks Stmark = new Studentmarks();
                 Stmark.setMark_id(rs.getInt("mark_id"));
                 Stmark.setGrade(rs.getString("grade"));
                 Stmark.setLevel(rs.getString("level")) ;

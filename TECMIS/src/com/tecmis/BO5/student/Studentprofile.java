@@ -21,11 +21,11 @@ import javax.swing.JOptionPane;
  *
  * @author ACER
  */
-public class profile extends javax.swing.JInternalFrame {
+public class Studentprofile extends javax.swing.JInternalFrame {
 
    String id;
    
-    public profile() {
+    public Studentprofile() {
         initComponents();
         Load("student");
         
@@ -157,15 +157,13 @@ public class profile extends javax.swing.JInternalFrame {
                 .addComponent(image_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(lblfname)
                         .addGap(18, 18, 18)
                         .addComponent(lbllname))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(btnaddimg)))
+                    .addComponent(btnaddimg))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
