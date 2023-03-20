@@ -700,7 +700,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Admin", new javax.swing.ImageIcon("C:\\Users\\Vivobook\\Downloads\\icons8-administrator-male-30.png"), jPanel3); // NOI18N
+        jTabbedPane1.addTab("Admin", new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-administrator-male-30.png"), jPanel3); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1083,7 +1083,7 @@ public class AdminForm extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
-        jTabbedPane1.addTab("Student", new javax.swing.ImageIcon("C:\\Users\\Vivobook\\Downloads\\icons8-student-center-30.png"), jPanel4); // NOI18N
+        jTabbedPane1.addTab("Student", new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-student-center-30.png"), jPanel4); // NOI18N
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1444,7 +1444,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Lecture", new javax.swing.ImageIcon("C:\\Users\\Vivobook\\Downloads\\icons8-lecture-24.png"), jPanel5); // NOI18N
+        jTabbedPane1.addTab("Lecture", new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-lecture-24.png"), jPanel5); // NOI18N
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1806,7 +1806,7 @@ public class AdminForm extends javax.swing.JFrame {
                     .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("Tecnical Officer", new javax.swing.ImageIcon("C:\\Users\\Vivobook\\Downloads\\icons8-technical-support-24.png"), jPanel6); // NOI18N
+        jTabbedPane1.addTab("Tecnical Officer", new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-technical-support-24.png"), jPanel6); // NOI18N
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2046,7 +2046,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Course", new javax.swing.ImageIcon("C:\\Users\\Vivobook\\Downloads\\icons8-course-32.png"), jPanel7); // NOI18N
+        jTabbedPane1.addTab("Course", new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-course-32.png"), jPanel7); // NOI18N
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2305,7 +2305,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Notice", new javax.swing.ImageIcon("C:\\Users\\Vivobook\\Downloads\\icons8-leave-24.png"), jPanel16); // NOI18N
+        jTabbedPane1.addTab("Notice", new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\icons8-leave-24.png"), jPanel16); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

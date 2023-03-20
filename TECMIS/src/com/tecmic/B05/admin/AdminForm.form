@@ -158,7 +158,7 @@
                   <JTabbedPaneConstraints tabName="Admin">
                     <Property name="tabTitle" type="java.lang.String" value="Admin"/>
                     <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Vivobook\Downloads\icons8-administrator-male-30.png"/>
+                      <Image iconType="2" name="F:\University Of Ruhuna\lectur note\Academic\Lvel II -Semester - I\OOP Praticum\Activities\Mini-Project\Java_Project\Images\icons8-administrator-male-30.png"/>
                     </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
@@ -931,7 +931,7 @@
                   <JTabbedPaneConstraints tabName="Student">
                     <Property name="tabTitle" type="java.lang.String" value="Student"/>
                     <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Vivobook\Downloads\icons8-student-center-30.png"/>
+                      <Image iconType="2" name="F:\University Of Ruhuna\lectur note\Academic\Lvel II -Semester - I\OOP Praticum\Activities\Mini-Project\Java_Project\Images\icons8-student-center-30.png"/>
                     </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
@@ -1767,7 +1767,7 @@
                   <JTabbedPaneConstraints tabName="Lecture">
                     <Property name="tabTitle" type="java.lang.String" value="Lecture"/>
                     <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Vivobook\Downloads\icons8-lecture-24.png"/>
+                      <Image iconType="2" name="F:\University Of Ruhuna\lectur note\Academic\Lvel II -Semester - I\OOP Praticum\Activities\Mini-Project\Java_Project\Images\icons8-lecture-24.png"/>
                     </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
@@ -2548,7 +2548,7 @@
                   <JTabbedPaneConstraints tabName="Tecnical Officer">
                     <Property name="tabTitle" type="java.lang.String" value="Tecnical Officer"/>
                     <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Vivobook\Downloads\icons8-technical-support-24.png"/>
+                      <Image iconType="2" name="F:\University Of Ruhuna\lectur note\Academic\Lvel II -Semester - I\OOP Praticum\Activities\Mini-Project\Java_Project\Images\icons8-technical-support-24.png"/>
                     </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
@@ -3337,7 +3337,7 @@
                   <JTabbedPaneConstraints tabName="Course">
                     <Property name="tabTitle" type="java.lang.String" value="Course"/>
                     <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Vivobook\Downloads\icons8-course-32.png"/>
+                      <Image iconType="2" name="F:\University Of Ruhuna\lectur note\Academic\Lvel II -Semester - I\OOP Praticum\Activities\Mini-Project\Java_Project\Images\icons8-course-32.png"/>
                     </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
@@ -3810,7 +3810,7 @@
                   <JTabbedPaneConstraints tabName="Notice">
                     <Property name="tabTitle" type="java.lang.String" value="Notice"/>
                     <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Vivobook\Downloads\icons8-leave-24.png"/>
+                      <Image iconType="2" name="F:\University Of Ruhuna\lectur note\Academic\Lvel II -Semester - I\OOP Praticum\Activities\Mini-Project\Java_Project\Images\icons8-leave-24.png"/>
                     </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
