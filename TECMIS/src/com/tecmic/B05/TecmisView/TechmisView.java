@@ -66,7 +66,7 @@ public class TechmisView extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("TECMIS | FACULTY OF TECHNOLOGY");
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vivobook\\Downloads\\florid-student-studying-and-taking-notes.gif")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\florid-student-studying-and-taking-notes.gif")); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));

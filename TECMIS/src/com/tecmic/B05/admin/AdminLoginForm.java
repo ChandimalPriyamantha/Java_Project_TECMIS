@@ -46,7 +46,7 @@ public class AdminLoginForm extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vivobook\\Downloads\\florid-student-studying-and-taking-notes.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("F:\\University Of Ruhuna\\lectur note\\Academic\\Lvel II -Semester - I\\OOP Praticum\\Activities\\Mini-Project\\Java_Project\\Images\\florid-student-studying-and-taking-notes.png")); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
